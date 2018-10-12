@@ -78,5 +78,4 @@ gulp.task('watch', function () {
     gulp.watch('fonts/!*.*', ['reload']);
 });
 
- //gulp.task('default', ['css']);
 gulp.task('default', ['connect', 'css', 'watch']);
