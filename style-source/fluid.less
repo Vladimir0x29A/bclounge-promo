@@ -1,0 +1,28 @@
+.fluid(@property, @maxScreen, @minScreen, @maxValue, @minValue, @flag_before, @flag_after) {
+  & when (@flag_before = 1) {
+    @{property}: @maxValue;
+  }
+
+  @media screen and (max-width: @maxScreen) {
+    @m: (@maxValue - @minValue) / (@maxScreen - @minScreen);
+    @b: round(@minValue - (@m * @minScreen));
+    @temp: @m * 100vw;
+    @rounded: round(@temp * 1000) / 1000;
+    & when (@b < 0) {
+      @abs-b: abs(@b);
+      @{property}: ~"calc(@{rounded} - @{abs-b})";
+    }
+    & when (@b > 0) {
+      @{property}: ~"calc(@{rounded} + @{b})";
+    }
+    & when (@b = 0) {
+      @{property}: @rounded;
+    }
+  }
+
+  & when (@flag_after = 1) {
+    @media screen and (max-width: @minScreen) {
+      @{property}: @minValue;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@import "flags";
+@import "colors";
+
+.section {
+  &-header {
+    padding-top: 40px;
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: block;
+      width: 132px;
+      height: 42px;
+      background-color: red;
+    }
+    .menu {
+      display: flex;
+      height: 40px;
+      &-links {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding-right: 26px;
+        border-right: 1px solid @color_menu_border;
+        li {
+          &:not(:last-child) {
+            margin-right: 32px;
+          }
+          a {
+            display: block;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            user-select: none;
+            transition: border-color .2s;
+            &.active,
+            &:hover {
+              border-color: @color_menu_link_hover;
+            }
+          }
+        }
+      }
+      &-lang {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0 26px;
+        .flag {
+          width: 22px;
+          height: 16px;
+          background: url("../img/sprite-flags.png");
+          &-en {
+            background-position-x: @flag_en;
+          }
+        }
+      }
+    }
+  }
+}

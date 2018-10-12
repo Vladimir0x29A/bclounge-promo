@@ -1,0 +1,37 @@
+@import "colors";
+@import "smart-grid";
+
+.section {
+  &-gamesSelect {
+    .row {
+      .row-flex();
+    }
+    .item {
+      .col();
+      .size(3);
+      background-color: @color_bg_main;
+      box-shadow: 0 30px 60px @color_gamesSelect_shadow;
+      &-wrapper {
+        position: relative;
+        padding-top: 100%;
+        overflow: hidden;
+        &::before {
+          @gradient_size: 600px;
+
+          @block_size: 270px;
+          @gradient_position_px: 80px;
+          @gradient_position_percent: percentage(@gradient_position_px / @block_size);
+
+          content: '';
+          position: absolute;
+          top: 0;
+          left: @gradient_position_percent;
+          transform: translate(-50%, -50%);
+          width: @gradient_size;
+          height: @gradient_size;
+          background-image: radial-gradient(circle farthest-side, @color_gamesSelect_radialGradient, transparent);
+        }
+      }
+    }
+  }
+}
