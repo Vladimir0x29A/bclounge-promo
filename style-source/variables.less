@@ -1,0 +1,14 @@
+@import "smart-grid";
+
+@wrapperWidth: 1170px;
+
+
+
+//Games select calculating
+@blocks: 4;
+@block_size: (@wrapperWidth - @offset * (@blocks - 1)) / @blocks;
+@gradient_position_px: 80px;
+@gradient_position_percent: percentage(@gradient_position_px / @block_size);
+@gradient_offset_x: @block_size - @gradient_position_px;
+@gradient_offset_y: @block_size;
+@gradient_size: ceil(sqrt(pow(@gradient_offset_x, 2) + pow(@gradient_offset_y, 2)) * 2);

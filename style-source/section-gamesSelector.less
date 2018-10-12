@@ -1,5 +1,5 @@
 @import "colors";
-@import "smart-grid";
+@import "variables";
 
 .section {
   &-gamesSelect {
@@ -16,12 +16,6 @@
         padding-top: 100%;
         overflow: hidden;
         &::before {
-          @gradient_size: 600px;
-
-          @block_size: 270px;
-          @gradient_position_px: 80px;
-          @gradient_position_percent: percentage(@gradient_position_px / @block_size);
-
           content: '';
           position: absolute;
           top: 0;
