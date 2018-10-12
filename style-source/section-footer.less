@@ -1,0 +1,172 @@
+//@import "icomoon";
+@import "colors";
+@import "breaks";
+
+.footer {
+  font-family: Ubuntu, sans-serif;
+  color: @color-footer-light;
+  position: relative;
+  z-index: 210;
+  overflow: hidden;
+  margin: 100px 0 0;
+  &-wrapper {
+    background-color: @color_bg_main;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
+    padding-top: 20px;
+    padding-bottom: 70px;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: linear-gradient(to top, #05162b 0%, rgba(5, 22, 43, 0.8) 25%, rgba(5, 22, 43, 0.3) 60%, transparent 100%);
+    }
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  &-top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    a, span {
+      cursor: pointer;
+      transition: color 0.2s;
+      & + a {
+        margin-left: 96px;
+      }
+      &:before {
+        font-size: 24px;
+      }
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  &-bottom {
+    position: relative;
+    padding-top: 100px;
+    > .container-fluid {
+      display: flex;
+      justify-content: space-between;
+      min-height: 54px;
+      @media screen and (max-width: @break-right) {
+        align-items: flex-end;
+      }
+    }
+    &-left, &-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    &-left {
+      .description {
+        font-size: 18px;
+        cursor: default;
+        br {
+          display: none;
+          @media screen and (max-width: @break-2) {
+            display: inline;
+          }
+        }
+        span {
+          @media screen and (max-width: @break-2) {
+            display: none;
+          }
+        }
+      }
+      .links {
+        user-select: none;
+        @media screen and (max-width: @break-right) {
+          margin-top: 20px;
+        }
+        a {
+          display: inline-block;
+          font-size: 14px;
+          transition: color 0.2s;
+          &:hover {
+            color: white;
+          }
+        }
+        span {
+          display: inline-block;
+          margin-left: 16px;
+          margin-right: 14px;
+        }
+      }
+    }
+    &-right {
+      .title {
+        font-size: 18px;
+        text-align: right;
+        cursor: default;
+        @media screen and (max-width: @break-right) {
+          text-align: left;
+        }
+      }
+      ul {
+        display: flex;
+        @media screen and (max-width: @break-right) {
+          display: block;
+          padding-left: 42px;
+          margin-top: 18px;
+        }
+      }
+      li {
+        padding-left: 34px;
+        @media screen and (max-width: @break-right) {
+          padding-left: 0;
+        }
+        & + li {
+          margin-left: 35px;
+          @media screen and (max-width: @break-right) {
+            margin-left: 0;
+            margin-top: 18px;
+          }
+        }
+        &.ethereum {
+          padding-left: 24px;
+          @media screen and (max-width: @break-right) {
+            padding-left: 0;
+          }
+        }
+      }
+      a {
+        user-select: none;
+        &:hover {
+          color: white;
+        }
+      }
+      a, span {
+        position: relative;
+        font-size: 15px;
+        transition: color 0.2s;
+        &:before {
+          position: absolute;
+          left: -20px;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          color: @color-yellow;
+          font-size: 26px;
+          @media screen and (max-width: @break-right) {
+            left: -24px;
+          }
+        }
+        &.icomoon-ethereum {
+          cursor: default;
+          &:before {
+            left: -15px;
+            @media screen and (max-width: @break-right) {
+              left: -23px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
