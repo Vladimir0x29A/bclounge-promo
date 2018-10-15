@@ -1,6 +1,7 @@
 @import "flags";
 @import "colors";
 @import "icomoon";
+@import "variables";
 
 .section {
   &-header {
@@ -11,10 +12,68 @@
       align-items: center;
     }
     .logo {
-      display: block;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
       width: 132px;
       height: 42px;
-      background-color: red;
+      &:hover {
+        .logo-item {
+          &-inner, &-outer {
+            animation: animate-logo 2s infinite linear;
+          }
+          &-outer {
+            animation-direction: reverse;
+          }
+        }
+      }
+      [class^="logo-item"] {
+        &::before {
+        &:extend(.im);
+        }
+        &:not(.logo-item-text) {
+          position: absolute;
+          color: @color-yellow;
+        }
+      }
+      .logo-item {
+        &-b {
+          top: 50%;
+          left: 17px;
+          transform: translate(-50%, -50%);
+          &::before {
+            content: @icomoon-logo-bitcoin;
+            font-size: 18px;
+          }
+        }
+        &-inner {
+          top: 6.6px;
+          left: 4px;
+          transform-origin: 50% 46%;
+          &::before {
+            content: @icomoon-logo-circle-inner;
+            font-size: 26px;
+          }
+        }
+        &-outer {
+          top: -.5px;
+          left: -4.6px;
+          transform-origin: 51% 48%;
+          &::before {
+            content: @icomoon-logo-circle-outer;
+            font-size: 41px;
+          }
+        }
+        &-text {
+          padding-top: 1px;
+          &::before {
+            content: @icomoon-logo-text;
+            color: white;
+            font-size: 25px;
+          }
+        }
+      }
     }
     .menu {
       display: flex;
