@@ -8,7 +8,11 @@
 @blocks: 4;
 @block_size: (@wrapperWidth - @offset * (@blocks - 1)) / @blocks;
 @gradient_position_px: 80px;
-@gradient_position_percent: percentage(@gradient_position_px / @block_size);
+@gradient_position_percent: round(percentage(@gradient_position_px / @block_size), 3);
 @gradient_offset_x: @block_size - @gradient_position_px;
 @gradient_offset_y: @block_size;
 @gradient_size: ceil(sqrt(pow(@gradient_offset_x, 2) + pow(@gradient_offset_y, 2)) * 2);
+@block_padding_px: 58px;
+@block_padding_percent: round(percentage(@block_padding_px / @block_size), 3);
+@picture_offset_y_px: 103px;
+@picture_offset_y_percentage: round(percentage(@picture_offset_y_px / @block_size), 3);
