@@ -1,5 +1,6 @@
 @import "flags";
 @import "colors";
+@import "icomoon";
 
 .section {
   &-header {
@@ -42,10 +43,11 @@
         }
       }
       &-lang {
+        position: relative;
         display: flex;
         align-items: center;
         height: 100%;
-        padding: 0 26px;
+        padding: 0 24px;
         .flag {
           width: 22px;
           height: 16px;
@@ -53,6 +55,15 @@
           &-en {
             background-position-x: @flag_en;
           }
+        }
+        &::after {
+          &:extend(.im);
+          content: @icomoon-arrow-down;
+          font-size: 6px;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
         }
       }
     }
