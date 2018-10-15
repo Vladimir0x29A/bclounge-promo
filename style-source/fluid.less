@@ -7,7 +7,7 @@
     @m: (@maxValue - @minValue) / (@maxScreen - @minScreen);
     @b: round(@minValue - (@m * @minScreen));
     @temp: @m * 100vw;
-    @rounded: round(@temp * 1000) / 1000;
+    @rounded: round(@temp, 3);
     & when (@b < 0) {
       @abs-b: abs(@b);
       @{property}: ~"calc(@{rounded} - @{abs-b})";
