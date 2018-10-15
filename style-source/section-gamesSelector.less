@@ -23,7 +23,8 @@
           transform: translate(-50%, -50%);
           width: @gradient_size;
           height: @gradient_size;
-          background-image: radial-gradient(circle farthest-side, @color_gamesSelect_radialGradient, transparent);
+          //background-image: @gradient_gamesSelect;
+          background-image: radial-gradient(circle farthest-side, fade(@color_gamesSelect_radialGradient, 20%), transparent);
         }
       }
       &-content {
