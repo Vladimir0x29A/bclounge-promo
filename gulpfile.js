@@ -51,7 +51,7 @@ gulp.task('grid', function () {
 
 gulp.task('connect', function () {
     connect.server({
-        root: '',
+        root: 'build',
         livereload: true
     });
 });
@@ -76,8 +76,8 @@ gulp.task('css', function () {
         //    browsers: ['last 15 versions'],
         //    cascade: false
         //}))
-        .pipe(rename('build/style.css'))
-        .pipe(gulp.dest('style'))
+        .pipe(rename('style.css'))
+        .pipe(gulp.dest('build/style'))
         .pipe(connect.reload());
 });
 
