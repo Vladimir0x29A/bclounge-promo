@@ -4,10 +4,21 @@ const gulp = require('gulp'),
     //sass = require('gulp-sass'),
     rename = require('gulp-rename'),
     //uncss = require('gulp-uncss'),
-     smartgrid = require('smart-grid'),
-     less = require('gulp-less'),
-     cleancss = require('gulp-clean-css'),
-     gcmq = require('gulp-group-css-media-queries');
+    smartgrid = require('smart-grid'),
+    less = require('gulp-less'),
+    cleancss = require('gulp-clean-css'),
+    gcmq = require('gulp-group-css-media-queries');
+    // rsync = require('gulp-rsync');
+
+/*gulp.task('deploy', function () {
+    return gulp.src('build/!**')
+        .pipe(rsync({
+            root: 'build/',
+            hostname: 'cyprus.kl.com.ua',
+            destination: '/cyprus.kl.com.ua',
+            username: "vladimir0x29a"
+        }));
+});*/
 
 gulp.task('grid', function () {
     smartgrid('style-source', {
