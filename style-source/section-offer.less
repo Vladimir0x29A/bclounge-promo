@@ -1,0 +1,49 @@
+@import "smart-grid";
+@import "variables";
+
+.section {
+  &-offer {
+    position: relative;
+    margin-top: 100px;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: image-width("@{image_path_pre}/background-parallelogram-01.svg");
+      height: image-height("@{image_path_pre}/background-parallelogram-01.svg");
+      background: url("@{image_path_post}/background-parallelogram-01.svg") center no-repeat;
+    }
+    .wrapper {
+      max-width: 972px;
+    }
+    .row {
+      .row-flex();
+    }
+    .col {
+      .col();
+      &-title {
+        position: relative;
+        .size(4);
+        font-size: 30px;
+        text-align: right;
+        &::after {
+          content: '';
+          position: absolute;
+          top: 7px;
+          bottom: 5px;
+          right: -(@offset_one_side + 1);
+          width: 2px;
+          background-color: white;
+        }
+      }
+      &-description {
+        position: relative;
+        .size(8);
+        color: @color_almostWhite;
+        line-height: 1.5;
+      }
+    }
+  }
+}
