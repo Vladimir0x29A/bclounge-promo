@@ -1,0 +1,40 @@
+@import "colors";
+@import "font";
+@import "variables";
+
+.section {
+  &-slogan {
+    margin-top: 80px;
+    .title {
+      display: block;
+      font-size: 30px;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .description {
+      display: block;
+      margin-top: 46px;
+      color: @color_slogan_description;
+      line-height: 1.5;
+    }
+    .button {
+      @image_pre: "@{image_path_pre}/button.png";
+      @image_post: "@{image_path_post}/button.png";
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: image-width("@{image_pre}");
+      height: image-height("@{image_pre}");
+      padding-right: 15px;
+      margin-top: 50px;
+      box-sizing: border-box;
+      font-size: 14px;
+      font-family: "SF UI Display", sans-serif;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+      background: url("@{image_post}");
+    }
+  }
+}
