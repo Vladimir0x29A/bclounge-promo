@@ -4,11 +4,26 @@
 
 .section {
   &-slogan {
+    position: relative;
     margin-top: 80px;
-    .wrapper {
+    > .wrapper {
       position: relative;
+    }
+    .wrapper {
+      &-image {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -600px;
+        bottom: -600px;
+        overflow: hidden;
+        > .wrapper {
+          height: 100%;
+        }
+      }
       &-second {
         position: relative;
+        height: 100%;
       }
     }
     .block {
