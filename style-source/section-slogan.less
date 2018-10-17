@@ -17,6 +17,7 @@
         top: -600px;
         bottom: -600px;
         overflow: hidden;
+        user-select: none;
         > .wrapper {
           height: 100%;
         }
@@ -38,7 +39,7 @@
         height: 100%;
         &-inner {
           position: absolute;
-          top: 50%;
+          top: 51%;
           left: 50%;
           transform: translate(-50%, -50%);
           width: image-width("@{image_path_pre}/image-01.png");
@@ -68,6 +69,7 @@
           img {
             z-index: 10;
             max-width: none;
+            transform: translate(-50%, -30%);
           }
         }
         &-shadow {
@@ -158,6 +160,7 @@
       text-transform: uppercase;
       text-shadow: 0 2px 5px rgba(0, 34, 81, .51);
       background: url("@{image_post}");
+      user-select: none;
     }
   }
 }
