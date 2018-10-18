@@ -1,0 +1,89 @@
+@import "colors";
+@import "variables";
+
+.section {
+  &-steps {
+    position: relative;
+    //height: 500px;
+    margin-top: 140px;
+    .wrapper {
+      &-image {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -550px;
+        bottom: -550px;
+        overflow: hidden;
+        > .wrapper {
+          height: 100%;
+        }
+      }
+    }
+    .block {
+      &-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        &::before, &::after {
+          position: absolute;
+          transform: translate(-50%, -50%);
+        }
+        &::before {
+          //content: url("@{image_path_post}/background-touches.png");
+        }
+        &::after {
+          //content: '';
+          width: 1743px;
+          height: 1476px;
+          background: @gradient_slogan;
+          opacity: .5;
+        }
+      }
+      &-text {
+        width: 270px;
+        margin-left: auto;
+        margin-right: 85px;
+        &-step {
+          position: relative;
+          &:not(:first-child) {
+            margin-top: 70px;
+          }
+          .title {
+            display: block;
+            margin-bottom: 4px;
+            color: @color_gameSelect_text;
+            font-size: 20px;
+          }
+          .description {
+            display: block;
+          }
+          &::before {
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            transform: translate(-50%, -50%);
+            color: @color_text_ghost;
+            font-size: 150px;
+            font-weight: bold;
+            opacity: .05;
+          }
+          &:nth-child(1) {
+            &::before {
+              content: '1';
+            }
+          }
+          &:nth-child(2) {
+            &::before {
+              content: '2';
+            }
+          }
+          &:nth-child(3) {
+            &::before {
+              content: '3';
+            }
+          }
+        }
+      }
+    }
+  }
+}
