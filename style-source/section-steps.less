@@ -1,12 +1,17 @@
 @import "colors";
 @import "variables";
+@import "font";
 
 .section {
   &-steps {
     position: relative;
     //height: 500px;
-    margin-top: 140px;
+    margin-top: 190px;
     .wrapper {
+      &-second {
+        position: relative;
+        height: 100%;
+      }
       &-image {
         position: absolute;
         left: 0;
@@ -23,20 +28,32 @@
       &-image {
         position: absolute;
         top: 50%;
-        left: 50%;
-        &::before, &::after {
+        left: round(percentage(310px / @wrapperWidth));
+        &-bg {
+          &::before, &::after, img {
+            position: absolute;
+            transform: translate(-50%, -50%);
+          }
+          &::before {
+            content: url("@{image_path_post}/background-touches.png");
+          }
+          &::after {
+            content: '';
+            width: 1743px;
+            height: 1476px;
+            background: @gradient_slogan;
+            opacity: .5;
+          }
+          img {
+            max-width: none;
+            transform: translate(-50%, -42%);
+          }
+        }
+        .currency {
           position: absolute;
+          z-index: 1;
+          max-width: none;
           transform: translate(-50%, -50%);
-        }
-        &::before {
-          //content: url("@{image_path_post}/background-touches.png");
-        }
-        &::after {
-          //content: '';
-          width: 1743px;
-          height: 1476px;
-          background: @gradient_slogan;
-          opacity: .5;
         }
       }
       &-text {
@@ -82,6 +99,36 @@
               content: '3';
             }
           }
+        }
+      }
+      &-currency {
+        position: absolute;
+        top: -40px;
+        .title {
+          position: absolute;
+          top: -130px;
+          transform: translate(-50%, -100%);
+          width: 250px;
+          font-family: "SF UI Display", sans-serif;
+          font-size: 28px;
+          font-weight: 600;
+          text-align: center;
+        }
+        &::before, &::after {
+          content: '';
+          position: absolute;
+          transform: translate(-50%, -50%);
+        }
+        &::before {
+          width: 640px;
+          height: 627px;
+          background: @gradient_slogan;
+        }
+        &::after {
+          top: 130px;
+          width: 210px;
+          height: 136px;
+          background: @gradient_steps_shadow;
         }
       }
     }
