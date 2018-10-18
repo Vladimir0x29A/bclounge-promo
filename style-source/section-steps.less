@@ -49,12 +49,6 @@
             transform: translate(-50%, -42%);
           }
         }
-        .currency {
-          position: absolute;
-          z-index: 1;
-          max-width: none;
-          transform: translate(-50%, -50%);
-        }
       }
       &-text {
         width: 270px;
@@ -101,9 +95,13 @@
           }
         }
       }
-      &-currency {
+      &-currency, &-bclounge, &-blocks {
         position: absolute;
-        top: -40px;
+        img {
+          position: absolute;
+          max-width: none;
+          transform: translate(-50%, -50%);
+        }
         .title {
           position: absolute;
           top: -130px;
@@ -115,9 +113,28 @@
           text-align: center;
         }
         &::before, &::after {
-          content: '';
           position: absolute;
           transform: translate(-50%, -50%);
+        }
+      }
+      &-currency {
+        top: -40px;
+        img {
+          &.lines {
+            top: 90px;
+            left: -5px;
+            &-shadow {
+              top: 170px;
+              left: -5px;
+              filter: blur(4px);
+            }
+          }
+          &.currencyIcon {
+            z-index: 1;
+          }
+        }
+        &::before, &::after {
+          content: '';
         }
         &::before {
           width: 640px;
@@ -128,6 +145,33 @@
           top: 130px;
           width: 210px;
           height: 136px;
+          background: @gradient_steps_shadow;
+        }
+      }
+      &-bclounge {
+        top: 130px;
+        left: -220px;
+        .title {
+          top: -95px;
+          left: -40px;
+          transform: translate(-50%, -100%) scaleX(.7) skewY(-14deg);
+        }
+        &::before {
+          content: '';
+          top: 130px;
+          width: 309px;
+          height: 207px;
+          background: @gradient_steps_shadow;
+        }
+      }
+      &-blocks {
+        top: 140px;
+        left: 220px;
+        &::before {
+          content: '';
+          top: 130px;
+          width: 347px;
+          height: 219px;
           background: @gradient_steps_shadow;
         }
       }
