@@ -6,7 +6,7 @@
   &-steps {
     position: relative;
     //height: 500px;
-    margin-top: 190px;
+    margin-top: 156px;
     .wrapper {
       &-second {
         position: relative;
@@ -28,7 +28,7 @@
       &-image {
         position: absolute;
         top: 50%;
-        left: round(percentage(310px / @wrapperWidth));
+        left: 26.8%;
         &-bg {
           &::before, &::after, img {
             position: absolute;
@@ -45,19 +45,23 @@
             opacity: .5;
           }
           img {
+            top: 43px;
+            left: 15px;
             max-width: none;
-            transform: translate(-50%, -42%);
+            transform: translate(-50%, -50%);
           }
         }
       }
       &-text {
+        position: relative;
+        z-index: 1;
         width: 270px;
         margin-left: auto;
         margin-right: 85px;
         &-step {
           position: relative;
           &:not(:first-child) {
-            margin-top: 70px;
+            margin-top: 78px;
           }
           .title {
             display: block;
@@ -104,13 +108,15 @@
         }
         .title {
           position: absolute;
-          top: -130px;
+          top: -121px;
           transform: translate(-50%, -100%);
-          width: 250px;
+          width: 300px;
           font-family: "SF UI Display", sans-serif;
           font-size: 28px;
           font-weight: 600;
+          line-height: 1.2;
           text-align: center;
+          letter-spacing: 1.3px;
         }
         &::before, &::after {
           position: absolute;
@@ -118,15 +124,34 @@
         }
       }
       &-currency {
-        top: -40px;
+        top: -35px;
+        .lines {
+          &-block {
+            &-top {
+              position: absolute;
+              top: 90px;
+              left: -5px;
+            }
+            &-bottom {
+              position: absolute;
+            }
+          }
+        }
         img {
           &.lines {
-            top: 90px;
-            left: -5px;
             &-shadow {
               top: 170px;
               left: -5px;
               filter: blur(4px);
+            }
+          }
+          &.drops {
+            top: -35px;
+            left: 15px;
+            &-blurred {
+              top: -36px;
+              left: 6px;
+              filter: blur(3.2px);
             }
           }
           &.currencyIcon {
@@ -149,12 +174,12 @@
         }
       }
       &-bclounge {
-        top: 130px;
+        top: 141px;
         left: -220px;
         .title {
-          top: -95px;
-          left: -40px;
-          transform: translate(-50%, -100%) scaleX(.7) skewY(-14deg);
+          top: -110px;
+          left: -25px;
+          transform: translate(-50%, -100%) scaleX(.7) skewY(-16deg);
         }
         &::before {
           content: '';
@@ -165,14 +190,44 @@
         }
       }
       &-blocks {
-        top: 140px;
-        left: 220px;
+        top: 141px;
+        left: 218px;
+        .title {
+          top: -86px;
+          left: -4px;
+          transform: translate(-50%, -100%) scaleX(.7) skewY(14deg);
+        }
         &::before {
           content: '';
           top: 130px;
           width: 347px;
           height: 219px;
           background: @gradient_steps_shadow;
+        }
+      }
+      &-lines {
+        &-bottom {
+          position: absolute;
+          top: 147px;
+          img {
+            position: absolute;
+            max-width: none;
+            transform: translate(-50%);
+            &.lines-bottom {
+              left: -20px;
+            }
+            &.drops {
+              &-bottom {
+                top: 12px;
+                left: -19px;
+                &-blurred {
+                  top: -4px;
+                  left: -10px;
+                  filter: blur(3.2px);
+                }
+              }
+            }
+          }
         }
       }
     }
