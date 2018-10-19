@@ -192,17 +192,36 @@
       &-blocks {
         top: 141px;
         left: 218px;
-        .title {
-          top: -86px;
-          left: -4px;
-          transform: translate(-50%, -100%) scaleX(.7) skewY(14deg);
-        }
         &::before {
           content: '';
           top: 130px;
           width: 347px;
           height: 219px;
           background: @gradient_steps_shadow;
+        }
+        .title {
+          top: -86px;
+          left: -4px;
+          transform: translate(-50%, -100%) scaleX(.7) skewY(14deg);
+        }
+        .grad {
+          position: absolute;
+          top: -255px;
+          left: -149px;
+          z-index: 1;
+          width: 300px;
+          height: 300px;
+          transform: rotate(135deg) skew(25deg, 25deg);
+          overflow: hidden;
+          &::before {
+            content: '';
+            position: absolute;
+            width: 133px;
+            height: 312px;
+            transform: translate(112px, -34px) rotate(20deg) skew(-25deg, 25deg);
+            background: @gradient_toTop;
+          }
+
         }
       }
       &-lines {
