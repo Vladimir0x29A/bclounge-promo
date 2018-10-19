@@ -30,6 +30,7 @@
     .block {
       &-text {
         position: relative;
+        z-index: 1;
       }
       &-image {
         position: absolute;
@@ -148,12 +149,12 @@
       @image_pre: "@{image_path_pre}/button.png";
       @image_post: "@{image_path_post}/button.png";
 
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
       width: image-width("@{image_pre}");
       height: image-height("@{image_pre}");
-      padding-right: 15px;
       margin-top: 50px;
       box-sizing: border-box;
       font-size: 14px;
@@ -164,6 +165,39 @@
       text-shadow: 0 2px 5px rgba(0, 34, 81, .51);
       background: url("@{image_post}");
       user-select: none;
+      a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 293px;
+        transform: translateZ(0) translate(36px) skewX(-41deg);
+        //transform: translate(36px) skewX(-41deg);
+        span {
+          transform: translate(-10px) skewX(41deg);
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: 2px;
+          left: 0;
+          right: 0;
+          bottom: 2px;
+          opacity: 0;
+          background: #fff;
+          transition: .2s;
+        }
+        &:hover {
+          &::after {
+            opacity: .2;
+            filter: shadow(0 0 30px #fff);
+            //box-shadow: 0 0 30px 2px fade(#fff, 100%);
+          }
+        }
+      }
     }
   }
 }
