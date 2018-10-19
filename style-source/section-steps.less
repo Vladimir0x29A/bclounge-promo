@@ -204,7 +204,7 @@
           left: -4px;
           transform: translate(-50%, -100%) scaleX(.7) skewY(14deg);
         }
-        .grad {
+        &-grad {
           position: absolute;
           top: -255px;
           left: -149px;
@@ -221,7 +221,29 @@
             transform: translate(112px, -34px) rotate(20deg) skew(-25deg, 25deg);
             background: @gradient_toTop;
           }
-
+        }
+        &-rhombus {
+          &::before, &::after {
+            content: '';
+            position: absolute;
+          }
+          &::before {
+            top: -31px;
+            width: 109px;
+            height: 93px;
+            transform: translate(-50%, -50%);
+            background: @gradient_steps_white;
+            z-index: 1;
+          }
+          &::after {
+            top: -40px;
+            left: -9px;
+            z-index: 1;
+            width: 18px;
+            height: 18px;
+            transform: rotate(135deg) skew(25deg, 25deg);
+            background-color: #fff;
+          }
         }
       }
       &-lines {
