@@ -131,6 +131,42 @@
             }
           }
         }
+        &-rhombus {
+          position: absolute;
+          &:nth-child(1) {
+            top: 149px;
+            left: 104px;
+          }
+          &:nth-child(2) {
+            top: 148px;
+            left: 414px;
+          }
+          &:nth-child(3) {
+            top: 68px;
+            left: 259px;
+          }
+          &::before, &::after {
+            content: '';
+            position: absolute;
+          }
+          &::before {
+            top: -31px;
+            width: 109px;
+            height: 93px;
+            transform: translate(-50%, -50%);
+            background: @gradient_steps_white;
+            z-index: 1;
+          }
+          &::after {
+            top: -40px;
+            left: -9px;
+            z-index: 1;
+            width: 18px;
+            height: 18px;
+            transform: rotate(135deg) skew(25deg, 25deg);
+            background-color: #fff;
+          }
+        }
       }
     }
     .title {
