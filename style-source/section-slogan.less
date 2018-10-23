@@ -202,12 +202,12 @@
       background: url("@{image_post}");
       user-select: none;
       transition: .2s;
-      &:hover {
+      /*&:hover {
         filter: drop-shadow(0 0 15px fade(white, 30%));
         &::before {
-          box-shadow: none;
+          box-shadow: 20px 30px 50px transparent;
         }
-      }
+      }*/
       &::before {
         content: '';
         position: absolute;
@@ -215,7 +215,7 @@
         left: 0;
         bottom: 0;
         width: 293px;
-        transform: translateZ(0) translate(36px) skewX(-41deg);
+          transform: translateZ(0) translate(36px) skewX(-41deg);
         box-shadow: 20px 30px 50px fade(#001633, 100%);
         transition: .2s;
       }
@@ -230,9 +230,9 @@
         width: 293px;
         transform: translateZ(0) translate(36px) skewX(-41deg);
         span {
-          transform: translate(-10px) skewX(41deg);
+          transform: translateZ(0) translate(-10px) skewX(41deg);
         }
-        &::after {
+        &::after, &::before {
           content: '';
           position: absolute;
           top: 2px;
@@ -240,10 +240,18 @@
           right: 0;
           bottom: 2px;
           opacity: 0;
+          transition: opacity .2s;
+        }
+        &::before {
+          box-shadow: 0 0 50px white;
+        }
+        &::after {
           background: #fff;
-          transition: .2s;
         }
         &:hover {
+          &::before {
+            opacity: .5;
+          }
           &::after {
             opacity: .2;
           }

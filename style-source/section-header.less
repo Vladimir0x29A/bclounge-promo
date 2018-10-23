@@ -116,6 +116,52 @@
             background-position-x: @flag_en;
           }
         }
+        &-select {
+          position: absolute;
+          right: -40px;
+          bottom: -8px;
+          transform: translateY(100%);
+          width: 230px;
+          &-item {
+            height: 53px;
+          }
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 184px;
+            transform: translate(23px) skewX(-41deg);
+            //transform: translateZ(0) translate3d(36px) skewX(-41deg);
+            background: #0e4385;
+            box-shadow: 25px 15px 50px fade(#001633, 80%);
+            span {
+              padding-right: 20px;
+              transform: skewX(41deg);
+            }
+            &::before {
+              content: '';
+              position: absolute;
+              top: 10px;
+              bottom: 10px;
+              left: 0;
+              right: 0;
+              background: #0f50a0;
+            }
+            &::after {
+              content: '';
+              width: 22px;
+              height: 16px;
+              background: url("@{image_path_post}/sprite-flags.png");
+              transform: skewX(41deg);
+            }
+            &.ru {
+              &::after {
+                background-position-x: @flag_ru;
+              }
+            }
+          }
+        }
         &::after {
           &:extend(.im);
           content: @icomoon-arrow-down;
