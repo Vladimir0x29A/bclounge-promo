@@ -5,7 +5,7 @@
   &-offer {
     position: relative;
     z-index: 1;
-    margin-top: 140px;
+    margin-top: 149px;
     &::before {
       content: '';
       position: absolute;
@@ -17,16 +17,14 @@
       background: url("@{image_path_post}/background-parallelogram-01.svg") center no-repeat;
     }
     .wrapper {
-      max-width: 972px;
-    }
-    .row {
-      .row-flex();
+      display: flex;
+      max-width: 937px;
     }
     .col {
-      .col();
       &-title {
         position: relative;
-        .size(4);
+        flex-shrink: 0;
+        margin-right: 27px;
         font-size: 30px;
         text-align: right;
         &::after {
@@ -34,14 +32,14 @@
           position: absolute;
           top: 7px;
           bottom: 5px;
-          right: -(@offset_one_side + 1);
+          right: -28px;
           width: 2px;
           background-color: white;
         }
       }
       &-description {
         position: relative;
-        .size(8);
+        margin-left: 27px;
         color: @color_almostWhite;
         line-height: 1.5;
       }

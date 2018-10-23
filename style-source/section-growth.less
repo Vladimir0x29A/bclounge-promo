@@ -18,16 +18,16 @@
       background: url("@{image_path_post}/background-parallelogram-03.svg") center no-repeat;
     }
     .wrapper {
-      max-width: 972px;
-    }
-    .row {
-      .row-flex();
+      display: flex;
+      justify-content: flex-end;
+      max-width: 1110px;
     }
     .col {
-      .col();
       &-title {
         position: relative;
-        .size(4);
+        flex-shrink: 0;
+        padding-left: 40px;
+        margin-right: 27px;
         font-size: 30px;
         text-align: right;
         &::after {
@@ -35,14 +35,15 @@
           position: absolute;
           top: 7px;
           bottom: 5px;
-          right: -(@offset_one_side + 1);
+          right: -28px;
           width: 2px;
           background-color: white;
         }
       }
       &-description {
         position: relative;
-        .size(8);
+        max-width: 790px;
+        margin-left: 27px;
         color: @color_almostWhite;
         line-height: 1.5;
       }
