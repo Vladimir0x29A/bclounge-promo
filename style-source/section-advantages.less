@@ -87,17 +87,17 @@
       }
       // Margins
       &:nth-child(1) {
-        margin-left: @advantage_offset_1 + 50%;
-        margin-right: @advantage_offset_2;
+        margin-left: round(@advantage_offset_1 + 50%, 3);
+        margin-right: round(@advantage_offset_2, 3);
       }
       &:nth-child(5), &:nth-child(4) {
-        margin-right: @advantage_offset_1;
-        margin-left: @advantage_offset_2;
+        margin-right: round(@advantage_offset_1, 3);
+        margin-left: round(@advantage_offset_2, 3);
         text-align: right;
       }
       &:nth-child(3), &:nth-child(2) {
-        margin-left: @advantage_offset_1;
-        margin-right: @advantage_offset_2;
+        margin-left: round(@advantage_offset_1, 3);
+        margin-right: round(@advantage_offset_2, 3);
       }
       // Ordering
       &:nth-child(5), &:nth-child(1) {
@@ -130,9 +130,9 @@
         }
       }
       &:nth-child(2) {
-        width: @width_2_percent;
-        margin-right: @advantage_offset_2_2;
-        margin-left: @advantage_offset_1_2;
+        width: round(@width_2_percent, 3);
+        margin-right: round(@advantage_offset_2_2, 3);
+        margin-left: round(@advantage_offset_1_2, 3);
         &::before {
           content: '2';
         }
@@ -145,14 +145,16 @@
       &:nth-child(4) {
         &::before {
           content: '4';
+          right: -4px;
         }
       }
       &:nth-child(5) {
-        width: @width_2_percent;
-        margin-right: @advantage_offset_1_2;
-        margin-left: @advantage_offset_2_2;
+        width: round(@width_2_percent, 3);
+        margin-right: round(@advantage_offset_1_2, 3);
+        margin-left: round(@advantage_offset_2_2, 3);
         &::before {
           content: '5';
+          right: 2px;
         }
       }
       &-title {
