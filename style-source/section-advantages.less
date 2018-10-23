@@ -4,8 +4,8 @@
 .section {
   &-advantages {
     position: relative;
-    height: 500px;
-    margin-top: 140px;
+    //height: 500px;
+    margin-top: 160px;
     .wrapper {
       &-image {
         position: absolute;
@@ -22,7 +22,7 @@
     .block {
       &-image {
         position: absolute;
-        top: 50%;
+        top: calc(50% - 20px);
         left: 50%;
         &::before, &::after {
           position: absolute;
@@ -38,6 +38,131 @@
           background: @gradient_slogan;
           opacity: .5;
         }
+        .logo, .lines, .shadow {
+          position: absolute;
+          z-index: 1;
+          transform: translate(-50%, -50%);
+          max-width: none;
+          user-select: none;
+        }
+        .shadow {
+          top: 4px;
+        }
+        .logo {
+          //filter: drop-shadow(-30px 0 40px black);
+        }
+      }
+    }
+    > .wrapper {
+      position: relative;
+      z-index: 1;
+    }
+    .title-section {
+      position: absolute;
+      top: 11px;
+      right: calc(70% - 15px);
+      font-size: 30px;
+      line-height: 1.5;
+      text-align: right;
+    }
+    .item {
+      @width_px: 307px;
+      @width_2_px: 270px;
+      @advantage_offset_1: 226px / @wrapperWidth * 100%;
+      @advantage_offset_1_2: 305px / @wrapperWidth * 100%;
+      @width_percent: @width_px / @wrapperWidth * 100%;
+      @width_2_percent: @width_2_px / @wrapperWidth * 100%;
+      @advantage_offset_2: 50% - (@width_percent + @advantage_offset_1);
+      @advantage_offset_2_2: 50% - (@width_2_percent + @advantage_offset_1_2);
+
+      position: relative;
+      width: round(@width_percent, 3);
+      margin: 30px 0;
+      &-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: -30px 0;
+      }
+      // Margins
+      &:nth-child(1) {
+        margin-left: @advantage_offset_1 + 50%;
+        margin-right: @advantage_offset_2;
+      }
+      &:nth-child(5), &:nth-child(4) {
+        margin-right: @advantage_offset_1;
+        margin-left: @advantage_offset_2;
+        text-align: right;
+      }
+      &:nth-child(3), &:nth-child(2) {
+        margin-left: @advantage_offset_1;
+        margin-right: @advantage_offset_2;
+      }
+      // Ordering
+      &:nth-child(5), &:nth-child(1) {
+        order: -2;
+      }
+      &:nth-child(4), &:nth-child(2) {
+        order: -1;
+      }
+      // Ghost numbers
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: -10px;
+        transform: translate(-50%, -50%);
+        color: @color_text_ghost;
+        font-size: 150px;
+        font-weight: bold;
+        opacity: .05;
+      }
+      &:nth-child(5), &:nth-child(4) {
+        &::before {
+          left: unset;
+          right: -10px;
+          transform: translate(50%, -50%);
+        }
+      }
+      &:nth-child(1) {
+        &::before {
+          content: '1';
+        }
+      }
+      &:nth-child(2) {
+        width: @width_2_percent;
+        margin-right: @advantage_offset_2_2;
+        margin-left: @advantage_offset_1_2;
+        &::before {
+          content: '2';
+        }
+      }
+      &:nth-child(3) {
+        &::before {
+          content: '3';
+        }
+      }
+      &:nth-child(4) {
+        &::before {
+          content: '4';
+        }
+      }
+      &:nth-child(5) {
+        width: @width_2_percent;
+        margin-right: @advantage_offset_1_2;
+        margin-left: @advantage_offset_2_2;
+        &::before {
+          content: '5';
+        }
+      }
+      &-title {
+        display: block;
+        margin-bottom: 4px;
+        color: @color_gameSelect_text;
+        font-size: 20px;
+      }
+      &-description {
+        display: block;
       }
     }
   }
