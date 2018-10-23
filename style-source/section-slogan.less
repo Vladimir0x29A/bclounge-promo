@@ -203,7 +203,21 @@
       user-select: none;
       transition: .2s;
       &:hover {
-        filter: drop-shadow(0 0 15px rgba(255, 255, 255, .3));
+        filter: drop-shadow(0 0 15px fade(white, 30%));
+        &::before {
+          box-shadow: none;
+        }
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 293px;
+        transform: translateZ(0) translate(36px) skewX(-41deg);
+        box-shadow: 20px 30px 50px fade(#001633, 100%);
+        transition: .2s;
       }
       a {
         position: absolute;
@@ -218,7 +232,7 @@
         span {
           transform: translate(-10px) skewX(41deg);
         }
-        &::after, &::before {
+        &::after {
           content: '';
           position: absolute;
           top: 2px;
