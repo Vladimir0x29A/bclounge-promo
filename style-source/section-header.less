@@ -5,12 +5,37 @@
 
 .section {
   &-header {
-    position: relative;
-    z-index: 1;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 89px;
+    transform: translateZ(0);
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: @color_bg_main;
+      box-shadow: 0 0 30px 15px @color_bg_main;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+    &.fixed {
+      &::before {
+        opacity: 1;
+      }
+    }
     .wrapper {
+      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
     }
     .logo {
       position: relative;
@@ -79,6 +104,7 @@
     .menu {
       display: flex;
       height: 40px;
+      padding-bottom: 2px;
       &-links {
         display: flex;
         align-items: center;
@@ -95,7 +121,6 @@
             border-bottom: 2px solid transparent;
             user-select: none;
             transition: border-color .2s;
-            &.active,
             &:hover {
               border-color: @color_menu_link_hover;
             }
@@ -108,7 +133,25 @@
         align-items: center;
         height: 100%;
         padding: 0 24px;
+        cursor: pointer;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: @color_menu_border;
+          opacity: 0;
+          transition: opacity .2s;
+        }
+        &:hover, &.open {
+          &::before {
+            opacity: .3;
+          }
+        }
         .flag {
+          position: relative;
           width: 22px;
           height: 16px;
           background: url("@{image_path_post}/sprite-flags.png");
@@ -120,8 +163,15 @@
           position: absolute;
           right: -40px;
           bottom: -8px;
-          transform: translateY(100%);
+          transform: translate(0, 120%);
+          display: none;
           width: 230px;
+          transition: .3s cubic-bezier(.4, 0, 0, 1);
+          opacity: 0;
+          &.open {
+            transform: translate(0, 100%);
+            opacity: 1;
+          }
           &-item {
             height: 53px;
           }

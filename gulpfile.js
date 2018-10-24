@@ -84,7 +84,7 @@ gulp.task('css', function () {
 gulp.task('watch', function () {
     gulp.watch('style-source/*.less', ['css']);
     gulp.watch('build/index.html', ['reload']);
-    // gulp.watch('build/js/!*.js', ['reload']);
+    gulp.watch('build/scripts/!*.js', ['reload']);
     gulp.watch('build/img/!*.*', ['reload']);
     gulp.watch('build/fonts/!*.*', ['reload']);
 });
