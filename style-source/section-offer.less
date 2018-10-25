@@ -6,15 +6,25 @@
     position: relative;
     z-index: 1;
     margin-top: 149px;
-    &::before {
-      content: '';
+    .decorative {
       position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: image-width("@{image_path_pre}/background-parallelogram-01.svg");
+      top: -50%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
       height: image-height("@{image_path_pre}/background-parallelogram-01.svg");
-      background: url("@{image_path_post}/background-parallelogram-01.svg") center no-repeat;
+      overflow: hidden;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: image-width("@{image_path_pre}/background-parallelogram-01.svg");
+        height: image-height("@{image_path_pre}/background-parallelogram-01.svg");
+        background: url("@{image_path_post}/background-parallelogram-01.svg") center no-repeat;
+      }
     }
     .wrapper {
       display: flex;

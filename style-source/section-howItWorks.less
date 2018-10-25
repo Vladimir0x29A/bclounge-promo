@@ -5,18 +5,29 @@
 .section {
   &-howItWorks {
     position: relative;
-    padding: 60px 0;
-    margin-top: 72px;
+    padding: 140px 0;
+    margin-bottom: -72px;
     z-index: 1;
-    &::before {
-      content: '';
+    .decorative {
       position: absolute;
-      left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
-      width: image-width("@{image_path_pre}/background-parallelogram-02.svg");
-      height: image-height("@{image_path_pre}/background-parallelogram-02.svg");
-      background: url("@{image_path_post}/background-parallelogram-02.svg") center no-repeat;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      height: image-height("@{image_path_pre}/background-parallelogram-01.svg");
+      overflow: hidden;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: image-width("@{image_path_pre}/background-parallelogram-02.svg");
+        height: image-height("@{image_path_pre}/background-parallelogram-02.svg");
+        background: url("@{image_path_post}/background-parallelogram-02.svg") center no-repeat;
+      }
     }
     .wrapper {
       display: flex;
