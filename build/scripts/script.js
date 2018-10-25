@@ -12,13 +12,14 @@ function raf(fn) {
 
 //Fixed menu
 
-let sectionMenu = document.querySelector('.section-header');
+const fixedSection = document.querySelector('.section-header');
+const fixedSectionTop = fixedSection.getBoundingClientRect().top + window.pageYOffset;
 
 window.addEventListener("scroll", function () {
-    if (sectionMenu.classList.contains('fixed') && window.pageYOffset < 60) {
-        sectionMenu.classList.remove('fixed');
-    } else if (window.pageYOffset > 60) {
-        sectionMenu.classList.add('fixed');
+    if (fixedSection.classList.contains('fixed') && window.pageYOffset < fixedSectionTop) {
+        fixedSection.classList.remove('fixed');
+    } else if (window.pageYOffset > fixedSectionTop) {
+        fixedSection.classList.add('fixed');
     }
 });
 
