@@ -9,23 +9,37 @@
     margin-bottom: -80px;
     .decorative {
       position: absolute;
-      top: 50%;
+      top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      transform: translateY(-50%);
-      width: 100%;
-      height: image-height("@{image_path_pre}/background-parallelogram-03.svg");
-      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      //transform: translateY(-50%);
+      //width: 100%;
+      //max-width: image-width("@{image_path_pre}/background-parallelogram-03.svg");
+      //height: image-height("@{image_path_pre}/background-parallelogram-03.svg");
+      //height: calc(100% - 160px);
+      //height: 100%;
+      //overflow: hidden;
+      margin: 0 auto;
       &::before {
         content: '';
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: image-width("@{image_path_pre}/background-parallelogram-03.svg");
-        height: image-height("@{image_path_pre}/background-parallelogram-03.svg");
+        display: block;
+        //position: absolute;
+        //top: 80px;
+        //left: 0;
+        //left: 50%;
+        //top: 50%;
+        //transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: image-width("@{image_path_pre}/background-parallelogram-03.svg");
+        height: calc(100% - 160px);
+        //height: 100%;
+        margin: 0 auto;
         background: url("@{image_path_post}/background-parallelogram-03.svg") center no-repeat;
+        background-size: cover;
       }
     }
     .wrapper {
