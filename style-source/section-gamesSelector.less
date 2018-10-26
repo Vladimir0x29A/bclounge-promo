@@ -4,14 +4,40 @@
 .section {
   &-gamesSelect {
     margin-top: 90px;
+    > .wrapper {
+      @media screen and (max-width: @break_md) {
+        max-width: 270px * 2 + @offset;
+        margin-bottom: -@offset;
+      }
+      @media screen and (max-width: @break_sm) {
+        max-width: 270px * 2 + @offset_sm;
+        margin-bottom: -@offset_sm;
+      }
+      @media screen and (max-width: @break_xs) {
+        max-width: 270px + @offset;
+        margin-bottom: -@offset;
+      }
+    }
     .row {
       .row-flex();
     }
     .item {
-      display: block;
       position: relative;
+      display: block;
       .col();
       .size(3);
+      .size-lg(3);
+      .size-md(6);
+      .size-xs(12);
+      @media screen and (max-width: @break_md) {
+        margin-bottom: @offset;
+      }
+      @media screen and (max-width: @break_sm) {
+        margin-bottom: @offset_sm;
+      }
+      @media screen and (max-width: @break_xs) {
+        margin-bottom: @offset;
+      }
       &:hover {
         .item {
           &-bg {

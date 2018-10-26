@@ -33,14 +33,17 @@ gulp.task('grid', function () {
         },
         breakPoints: {
             lg: {
-                width: '1100px'
+                width: '1100px',
+                offset: '15px'
             },
             md: {
-                width: '960px'
+                width: '960px',
+                offset: '30px'
             },
             sm: {
                 width: '767px',
-                fields: '15px'
+                fields: '15px',
+                offset: '15px'
             },
             xs: {
                 width: '560px'
