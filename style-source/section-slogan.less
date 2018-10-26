@@ -38,6 +38,9 @@
         right: 0;
         width: 50%;
         height: 100%;
+        @media screen and (max-width: @break_lg) {
+          width: 100%;
+        }
         &-inner {
           position: absolute;
           top: 51%;
@@ -45,6 +48,11 @@
           transform: translate(-50%, -50%);
           width: image-width("@{image_path_pre}/image-01.png");
           height: image-height("@{image_path_pre}/image-01.png");
+          > [class^="block-image-"]:not(.block-image-bg), > img {
+            @media screen and (max-width: @break_lg) {
+              display: none;
+            }
+          }
           img {
             position: relative;
             display: block;
@@ -174,12 +182,20 @@
       font-size: 30px;
       font-weight: 300;
       line-height: 1.5;
+      @media screen and (max-width: @break_lg) {
+        text-align: center;
+        text-shadow: 2px 2px 2px fade(black, 20%);
+      }
     }
     .description {
       display: block;
       margin-top: 46px;
       color: @color_slogan_description;
       line-height: 1.5;
+      @media screen and (max-width: @break_lg) {
+        text-align: center;
+        text-shadow: 2px 2px 2px fade(black, 50%);
+      }
     }
     .button {
       @image_pre: "@{image_path_pre}/button.png";
@@ -202,12 +218,10 @@
       background: url("@{image_post}");
       user-select: none;
       transition: .2s;
-      /*&:hover {
-        filter: drop-shadow(0 0 15px fade(white, 30%));
-        &::before {
-          box-shadow: 20px 30px 50px transparent;
-        }
-      }*/
+      @media screen and (max-width: @break_lg) {
+        margin-right: auto;
+        margin-left: auto;
+      }
       &::before {
         content: '';
         position: absolute;
