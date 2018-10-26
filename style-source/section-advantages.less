@@ -6,6 +6,9 @@
     position: relative;
     //height: 500px;
     margin-top: 130px;
+    @media screen and (max-width: @break_md) {
+      margin-top: 100px;
+    }
     .wrapper {
       &-image {
         position: absolute;
@@ -14,6 +17,9 @@
         top: -550px;
         bottom: -550px;
         overflow: hidden;
+        @media screen and (max-width: @break_md) {
+          //display: none;
+        }
         > .wrapper {
           height: 100%;
         }
@@ -24,6 +30,10 @@
         position: absolute;
         top: calc(50% - 2px);
         left: 50%;
+        @media screen and (max-width: @break_md) {
+          top: 45%;
+          left: 0;
+        }
         &::before, &::after {
           position: absolute;
           transform: translate(-50%, -50%);
@@ -51,6 +61,11 @@
         .logo {
           //filter: drop-shadow(-30px 0 40px black);
         }
+        .lines {
+          @media screen and (max-width: @break_lg) {
+            transform: translate(-50%, -50%) scale(.8, 1.2);
+          }
+        }
       }
     }
     > .wrapper {
@@ -64,6 +79,12 @@
       font-size: 30px;
       line-height: 1.5;
       text-align: right;
+      @media screen and (max-width: @break_md) {
+        position: static;
+        display: block;
+        text-align: center;
+        margin-bottom: 50px;
+      }
     }
     .item {
       @width_px: 307px;
@@ -78,12 +99,25 @@
       position: relative;
       width: round(@width_percent, 3);
       margin: 32px 0;
+      @media screen and (max-width: @break_md) {
+        width: 100%;
+        &:nth-child(2),
+        &:nth-child(5) {
+          width: 100%;
+        }
+      }
       &-block {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
         margin: -30px 0;
+        @media screen and (max-width: @break_md) {
+          flex-direction: column;
+          max-width: 400px;
+          margin-right: auto;
+          margin-left: auto;
+        }
       }
 
       // Margins
@@ -100,13 +134,29 @@
         margin-left: round(@advantage_offset_1, 3);
         margin-right: round(@advantage_offset_2, 3);
       }
+      @media screen and (max-width: @break_md) {
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5) {
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
 
       // Ordering
       &:nth-child(5), &:nth-child(1) {
         order: -2;
+        @media screen and (max-width: @break_md) {
+          order: initial;
+        }
       }
       &:nth-child(4), &:nth-child(2) {
         order: -1;
+        @media screen and (max-width: @break_md) {
+          order: initial;
+        }
       }
 
       // Margins
@@ -114,7 +164,7 @@
         margin-top: 24px;
       }
 
-        // Ghost numbers
+      // Ghost numbers
       &::before {
         position: absolute;
         top: 50%;

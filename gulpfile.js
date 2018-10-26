@@ -42,8 +42,8 @@ gulp.task('grid', function () {
             },
             sm: {
                 width: '767px',
-                fields: '15px',
-                offset: '15px'
+                fields: '15px'
+                // offset: '15px'
             },
             xs: {
                 width: '560px'

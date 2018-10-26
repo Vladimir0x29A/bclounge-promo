@@ -9,8 +9,8 @@
 @offset: 30px;
 @offset_lg: 15px;
 @offset_md: 30px;
-@offset_sm: 15px;
-@offset_xs: @offset_sm;
+@offset_sm: @offset_md;
+@offset_xs: @offset_md;
 
 @offset_one_side: (@offset / 2);
 @offset_lg_one_side: (@offset_lg / 2);
@@ -44,11 +44,6 @@
         margin-left: (@offset_md_one_side * -1);
         margin-right: (@offset_md_one_side * -1);
     });
-
-    .sm-block({
-        margin-left: (@offset_sm_one_side * -1);
-        margin-right: (@offset_sm_one_side * -1);
-    });
 }
 
 .col-offsets(@type){
@@ -63,11 +58,6 @@
     .md-block({
         @{type}-left: @offset_md_one_side;
         @{type}-right: @offset_md_one_side;
-    });
-
-    .sm-block({
-        @{type}-left: @offset_sm_one_side;
-        @{type}-right: @offset_sm_one_side;
     });
 }
 
@@ -448,7 +438,6 @@
                 .size(1);
                 .size-lg(1);
                 .size-md(1);
-                .size-sm(1);
                 height: inherit;
                 outline: @outline;
                 background: @background;

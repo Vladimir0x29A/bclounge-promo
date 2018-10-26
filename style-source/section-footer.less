@@ -2,17 +2,26 @@
 @import "colors";
 @import "breaks";
 
-.footer {
+.section-footer {
   font-family: Ubuntu, sans-serif;
   color: @color-footer-light;
   position: relative;
   z-index: 210;
   overflow: hidden;
   margin: 100px 0 0;
+  @media screen and (max-width: @break_lg) {
+    margin-top: 50px;
+  }
+}
+
+.footer {
   &-wrapper {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
     padding-top: 20px;
     padding-bottom: 70px;
+    @media screen and (max-width: @break_lg) {
+      padding-bottom: 50px;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -50,11 +59,14 @@
   &-bottom {
     position: relative;
     padding-top: 100px;
+    @media screen and (max-width: @break_lg) {
+      padding-top: 50px;
+    }
     .wrapper {
       display: flex;
       justify-content: space-between;
       min-height: 54px;
-      @media screen and (max-width: @break-right) {
+      @media screen and (max-width: @break_footer_right) {
         align-items: flex-end;
       }
     }
@@ -69,20 +81,20 @@
         cursor: default;
         br {
           display: none;
-          @media screen and (max-width: @break-2) {
+          @media screen and (max-width: @break_footer_2) {
             display: inline;
           }
         }
         span {
-          @media screen and (max-width: @break-2) {
+          @media screen and (max-width: @break_footer_2) {
             display: none;
           }
         }
       }
       .links {
         user-select: none;
-        @media screen and (max-width: @break-right) {
-          margin-top: 20px;
+        @media screen and (max-width: @break_footer_right) {
+          margin-top: 15px;
         }
         a {
           display: inline-block;
@@ -104,13 +116,14 @@
         font-size: 18px;
         text-align: right;
         cursor: default;
-        @media screen and (max-width: @break-right) {
+        @media screen and (max-width: @break_footer_right) {
           text-align: left;
+          padding-left: 4px;
         }
       }
       ul {
         display: flex;
-        @media screen and (max-width: @break-right) {
+        @media screen and (max-width: @break_footer_right) {
           display: block;
           padding-left: 42px;
           margin-top: 18px;
@@ -118,19 +131,19 @@
       }
       li {
         padding-left: 34px;
-        @media screen and (max-width: @break-right) {
+        @media screen and (max-width: @break_footer_right) {
           padding-left: 0;
         }
         & + li {
           margin-left: 35px;
-          @media screen and (max-width: @break-right) {
+          @media screen and (max-width: @break_footer_right) {
             margin-left: 0;
             margin-top: 18px;
           }
         }
         &.ethereum {
           padding-left: 24px;
-          @media screen and (max-width: @break-right) {
+          @media screen and (max-width: @break_footer_right) {
             padding-left: 0;
           }
         }
@@ -152,7 +165,7 @@
           transform: translate(-50%, -50%);
           color: @color-yellow;
           font-size: 26px;
-          @media screen and (max-width: @break-right) {
+          @media screen and (max-width: @break_footer_right) {
             left: -24px;
           }
         }
@@ -160,7 +173,7 @@
           cursor: default;
           &:before {
             left: -15px;
-            @media screen and (max-width: @break-right) {
+            @media screen and (max-width: @break_footer_right) {
               left: -23px;
             }
           }

@@ -1,21 +1,24 @@
 @import "colors";
 @import "variables";
+@import "breaks";
 
 .section {
   &-gamesSelect {
     margin-top: 90px;
+    @media screen and (max-width: @break_sm) {
+      margin-top: 50px;
+    }
     > .wrapper {
       @media screen and (max-width: @break_md) {
         max-width: 270px * 2 + @offset;
         margin-bottom: -@offset;
       }
       @media screen and (max-width: @break_sm) {
-        max-width: 270px * 2 + @offset_sm;
-        margin-bottom: -@offset_sm;
+        max-width: 500px;
       }
       @media screen and (max-width: @break_xs) {
-        max-width: 270px + @offset;
-        margin-bottom: -@offset;
+        max-width: 235px;
+        margin-bottom: 0;
       }
     }
     .row {
@@ -28,15 +31,49 @@
       .size(3);
       .size-lg(3);
       .size-md(6);
+      .size-sm(6);
       .size-xs(12);
       @media screen and (max-width: @break_md) {
         margin-bottom: @offset;
       }
-      @media screen and (max-width: @break_sm) {
-        margin-bottom: @offset_sm;
-      }
       @media screen and (max-width: @break_xs) {
-        margin-bottom: @offset;
+        margin-bottom: 0;
+        &:not(:first-child) {
+          margin-top: @offset;
+        }
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+          display: none;
+        }
+        &:nth-child(5) {
+          display: initial;
+        }
+      }
+      &:nth-child(5) {
+        display: none;
+        .item {
+          &-content {
+            > img {
+              transform: translate(-50%, -50%) scale(.7);
+              &:nth-child(1), &:nth-child(2) {
+                top: 20%;
+              }
+              &:nth-child(3), &:nth-child(4) {
+                top: 55%;
+              }
+              &:nth-child(1), &:nth-child(3) {
+                left: 30%;
+              }
+              &:nth-child(2), &:nth-child(4) {
+                left: 70%;
+              }
+            }
+            > span {
+              bottom: 16%;
+            }
+          }
+        }
       }
       &:hover {
         .item {
@@ -110,6 +147,18 @@
           top: @picture_offset_y_percentage;
           left: 50%;
           transform: translate(-50%, -50%);
+          @media screen and (max-width: @break_gamesSelector_img) {
+            transform: translate(-50%, -50%) scale(.9);
+          }
+          @media screen and (max-width: @break_lg) {
+            transform: translate(-50%, -50%) scale(.8);
+          }
+          @media screen and (max-width: @break_md) {
+            transform: translate(-50%, -50%);
+          }
+          @media screen and (max-width: @break_sm) {
+            transform: translate(-50%, -50%) scale(.9);
+          }
         }
         span {
           position: absolute;
