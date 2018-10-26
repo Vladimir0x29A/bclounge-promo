@@ -10,29 +10,32 @@
     z-index: 1;
     .decorative {
       position: absolute;
-      top: 50%;
+      top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      transform: translateY(-50%);
-      width: 100%;
-      height: image-height("@{image_path_pre}/background-parallelogram-01.svg");
-      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
       &::before {
         content: '';
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: image-width("@{image_path_pre}/background-parallelogram-02.svg");
-        height: image-height("@{image_path_pre}/background-parallelogram-02.svg");
+        width: 100%;
+        max-width: image-width("@{image_path_pre}/background-parallelogram-02.svg");
+        height: calc(100% - 169px);
+        margin: 0 auto;
         background: url("@{image_path_post}/background-parallelogram-02.svg") center no-repeat;
+        background-size: cover;
       }
     }
     .wrapper {
       display: flex;
       justify-content: flex-end;
       max-width: 1080px;
+      @media screen and (max-width: @break_md) {
+        flex-direction: column;
+        align-items: center;
+      }
     }
     .col {
       &-title {
@@ -41,6 +44,10 @@
         margin-right: 27px;
         font-size: 30px;
         text-align: right;
+        @media screen and (max-width: @break_md) {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
         &::after {
           content: '';
           position: absolute;
@@ -49,6 +56,9 @@
           right: -28px;
           width: 2px;
           background-color: white;
+          @media screen and (max-width: @break_md) {
+            content: none;
+          }
         }
       }
       &-description {
@@ -57,6 +67,10 @@
         margin-left: 27px;
         color: @color_almostWhite;
         line-height: 1.5;
+        @media screen and (max-width: @break_md) {
+          max-width: none;
+          margin-left: 0;
+        }
       }
     }
   }
