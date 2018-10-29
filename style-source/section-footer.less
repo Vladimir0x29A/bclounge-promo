@@ -1,6 +1,7 @@
 @import "icomoon";
 @import "colors";
 @import "breaks";
+@import "variables";
 
 .section-footer {
   font-family: Ubuntu, sans-serif;
@@ -85,7 +86,8 @@
         text-align: center;
       }
       .description {
-        font-size: 18px;
+        .rem(18px);
+        //font-size: 18px;
         cursor: default;
         br {
           display: none;
@@ -106,7 +108,8 @@
         }
         a {
           display: inline-block;
-          font-size: 14px;
+          .rem(14px);
+          //font-size: 14px;
           transition: color 0.2s;
           &:hover {
             color: white;
@@ -124,7 +127,8 @@
         order: -1;
       }
       .title {
-        font-size: 18px;
+        .rem(18px);
+        //font-size: 18px;
         text-align: right;
         cursor: default;
         @media screen and (max-width: @break_footer_right) {
@@ -167,7 +171,8 @@
       }
       a, span {
         position: relative;
-        font-size: 15px;
+        .rem(15px);
+        //font-size: 15px;
         transition: color 0.2s;
         &:before {
           position: absolute;
@@ -175,7 +180,8 @@
           top: 50%;
           transform: translate(-50%, -50%);
           color: @color-yellow;
-          font-size: 26px;
+          .rem(26px);
+          //font-size: 26px;
           @media screen and (max-width: @break_footer_right) {
             left: -24px;
           }

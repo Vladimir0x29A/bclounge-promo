@@ -18,6 +18,7 @@
       margin-bottom: -130px;
     }
     @media screen and (max-width: @break_steps_4) {
+      display: flex;
       margin-bottom: 250px;
     }
     @media screen and (max-width: @break_steps_5) {
@@ -48,17 +49,17 @@
         position: absolute;
         top: 50%;
         //left: 26.8%;
-        left: 314px;
+        left: 334px;
         @media screen and (max-width: @break_steps_1) {
-          left: 280px;
+          left: 300px;
           transform: scale(.9);
         }
         @media screen and (max-width: @break_steps_2) {
-          left: 260px;
+          left: 267px;
           transform: scale(.8);
         }
         @media screen and (max-width: @break_steps_3) {
-          left: 220px;
+          left: 231px;
           transform: scale(.7);
         }
         @media screen and (max-width: @break_steps_4) {
@@ -111,7 +112,7 @@
           margin-left: 480px;
         }
         @media screen and (max-width: @break_steps_4) {
-          align-items: center;
+          align-items: flex-start;
           margin-left: 0;
         }
         &-step {
@@ -128,7 +129,8 @@
             display: block;
             margin-bottom: 4px;
             color: @color_gameSelect_text;
-            font-size: 20px;
+            .rem(20px);
+            //font-size: 20px;
           }
           .description {
             position: relative;
@@ -140,7 +142,8 @@
             left: -10px;
             transform: translate(-50%, -50%);
             color: @color_text_ghost;
-            font-size: 150px;
+            .rem(150px);
+            //font-size: 150px;
             font-weight: bold;
             opacity: .05;
           }
@@ -174,7 +177,8 @@
           transform: translate(-50%, -100%);
           width: 300px;
           font-family: "SF UI Display", sans-serif;
-          font-size: 28px;
+          .rem(28px);
+          //font-size: 28px;
           font-weight: 600;
           line-height: 1.2;
           text-align: center;

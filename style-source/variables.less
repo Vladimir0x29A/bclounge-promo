@@ -30,3 +30,9 @@
 @block_padding_percent: round(percentage(@block_padding_px / @block_size), 3);
 @picture_offset_y_px: 103px;
 @picture_offset_y_percentage: round(percentage(@picture_offset_y_px / @block_size), 3);
+
+
+.rem(@px) {
+  @fz: round(unit(@px / 16px), 2);
+  font-size: ~"@{fz}rem";
+}

@@ -13,6 +13,18 @@
 @import "section-steps";
 @import "narrow-sections";
 
+html {
+  @media screen and (max-width: @break_md) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: @break_sm) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: @break_xs) {
+    font-size: 13px;
+  }
+}
+
 body {
   padding-top: 40px;
   font-family: Ubuntu, sans-serif;
