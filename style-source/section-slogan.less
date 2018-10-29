@@ -34,6 +34,11 @@
       &-text {
         position: relative;
         z-index: 1;
+        @media screen and (max-width: @break_lg) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
       }
       &-image {
         position: absolute;
@@ -213,8 +218,7 @@
       height: image-height("@{image_pre}");
       margin-top: 50px;
       box-sizing: border-box;
-      .rem(13px);
-      //font-size: 13px;
+      font-size: 13px;
       font-family: "SF UI Display", sans-serif;
       font-weight: 900;
       text-align: center;
@@ -222,10 +226,8 @@
       text-shadow: 0 2px 5px rgba(0, 34, 81, .51);
       background: url("@{image_post}");
       user-select: none;
-      transition: .2s;
-      @media screen and (max-width: @break_lg) {
-        margin-right: auto;
-        margin-left: auto;
+      @media screen and (max-width: @break_sm) {
+        transform: scale(.8);
       }
       &::before {
         content: '';
