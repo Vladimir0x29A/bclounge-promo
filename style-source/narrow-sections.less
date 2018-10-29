@@ -5,20 +5,25 @@
   &-offer, &-howItWorks, &-growth {
     .col {
       &-title {
-        @media screen and (max-width: @break_sm) {
-          //font-size: 28px;
+        @media screen and (max-width: @break_md) {
+          margin-bottom: 16px;
         }
-        @media screen and (max-width: @break_xs) {
-          //font-size: 26px;
+        &::after {
+          @media screen and (max-width: @break_md) {
+            top: auto;
+            left: 0;
+            right: 0;
+            bottom: -6px;
+            width: auto;
+            height: 2px;
+          }
         }
       }
       &-description {
         @media screen and (max-width: @break_sm) {
-          //font-size: 15px;
           line-height: 1.4;
         }
         @media screen and (max-width: @break_xs) {
-          //font-size: 14px;
           line-height: 1.3;
         }
       }
