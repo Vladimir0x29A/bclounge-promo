@@ -31,12 +31,21 @@
         top: calc(50% - 2px);
         left: 50%;
         @media screen and (max-width: @break_md) {
-          top: 45%;
+          top: calc(667px + 10%);
           left: 0;
         }
+        @media screen and (max-width: @break_sm) {
+          top: calc(667px + 9.5%);
+          transform: scale(.9);
+        }
         @media screen and (max-width: @break_advantages) {
-          top: 50%;
-          left: 50%;
+          top: 46%;
+          transform: scale(.8);
+          //top: 50%;
+          //left: 50%;
+        }
+        @media screen and (max-width: @break_xs) {
+          transform: scale(.7);
         }
         &::before, &::after {
           position: absolute;
@@ -59,7 +68,7 @@
           max-width: none;
           user-select: none;
           @media screen and (max-width: @break_advantages) {
-            display: none;
+            //display: none;
           }
         }
         .shadow {
@@ -73,25 +82,40 @@
             transform: translate(-50%, -50%) scale(.8, 1.2);
           }
           @media screen and (max-width: @break_md) {
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) scale(.9);
           }
           @media screen and (max-width: @break_sm) {
-            transform: translate(-50%, -50%) scale(.8, 1);
+            transform: translate(-50%, -50%) scale(.8, .9);
+          }
+          @media screen and (max-width: @break_advantages) {
+            transform: translate(-50%, -50%) scale(.6, 1);
           }
         }
         &:nth-child(2) {
           display: none;
-          top: 60%;
+          top: auto;
+          bottom: calc(592px + 9%);
           left: auto;
           right: 0;
+          //top: 58.7%;
           @media screen and (max-width: @break_md) {
             display: block;
             .lines {
               clip: rect(140px, 437px, 326px, 0);
             }
           }
+          @media screen and (max-width: @break_sm) {
+            bottom: calc(592px + 8%);
+            //top: 59%;
+          }
           @media screen and (max-width: @break_advantages) {
-            display: none;
+            //top: 59.6%;
+            //display: none;
+          }
+          @media screen and (max-width: @break_xs) {
+            .lines {
+              transform: translate(-50%, -50%) scale(.6, 1.2);
+            }
           }
         }
       }
@@ -152,16 +176,21 @@
         }
         @media screen and (max-width: @break_advantages) {
           max-width: 400px;
-          margin-right: auto;
-          margin-left: auto;
+          margin-right: 100px;
+          margin-left: 100px;
+        }
+        @media screen and (max-width: @break_xs) {
+          max-width: none;
+          margin-right: 0;
+          margin-left: 0;
         }
       }
 
       &:nth-child(5), &:nth-child(4) {
         text-align: right;
-        @media screen and (max-width: @break_advantages) {
+        /*@media screen and (max-width: @break_advantages) {
           text-align: left;
-        }
+        }*/
       }
 
       // Margins
@@ -224,11 +253,11 @@
           left: unset;
           right: -10px;
           transform: translate(50%, -50%);
-          @media screen and (max-width: @break_advantages) {
+          /*@media screen and (max-width: @break_advantages) {
             left: -10px;
             right: auto;
             transform: translate(-50%, -50%);
-          }
+          }*/
         }
       }
       &:nth-child(1) {
@@ -266,11 +295,53 @@
       }
 
       // Mobile offset
+      @media screen and (max-width: @break_xs) {
+        // Max-width
+        &:nth-child(1),
+        &:nth-child(3),
+        &:nth-child(5) {
+          width: calc(100% - 100px);
+        }
+        &:nth-child(2),
+        &:nth-child(4) {
+          width: calc(100% - 120px);
+        }
+        // Align
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+          align-self: flex-start;
+        }
+        &:nth-child(4),
+        &:nth-child(5) {
+          align-self: flex-end;
+        }
+        // Margins
+        &:nth-child(1),
+        &:nth-child(3) {
+          margin-left: 100px;
+        }
+        &:nth-child(2) {
+          margin-left: 120px;
+        }
+        &:nth-child(4) {
+          margin-right: 120px;
+        }
+        &:nth-child(5) {
+          margin-right: 100px;
+        }
+      }
       &:nth-child(2) {
         @media screen and (max-width: @break_md) {
           left: 60px;
         }
+        @media screen and (max-width: @break_sm) {
+          left: 40px;
+        }
         @media screen and (max-width: @break_advantages) {
+          //left: auto;
+        }
+        @media screen and (max-width: @break_xs) {
           left: auto;
         }
       }
@@ -278,7 +349,13 @@
         @media screen and (max-width: @break_md) {
           right: 60px;
         }
+        @media screen and (max-width: @break_sm) {
+          right: 40px;
+        }
         @media screen and (max-width: @break_advantages) {
+          //right: auto;
+        }
+        @media screen and (max-width: @break_xs) {
           right: auto;
         }
       }
