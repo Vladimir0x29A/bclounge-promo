@@ -27,6 +27,56 @@ window.addEventListener("scroll", function () {
 
 
 
+// Burger menu
+
+const burgerButton = document.querySelector(".burger-button");
+const burgerMenu = document.querySelector(".section-header .menu");
+const closeButton = burgerMenu.querySelector(".section-header .menu .close-button");
+const body = document.body;
+
+let scrollPosition;
+
+function burgerButtonHandler() {
+    scrollPosition = window.pageYOffset;
+    burgerMenu.style.display = "flex";
+    body.style.overflowY = "hidden";
+    body.style.position = "fixed";
+    body.style.top = -scrollPosition + 'px';
+    raf(function () {
+        burgerMenu.classList.add("open");
+    });
+}
+
+function supportSideBarLeave() {
+    burgerMenu.removeAttribute("style");
+    // body.removeAttribute("style");
+    body.style.removeProperty("overflow-y");
+    body.style.removeProperty("position");
+    body.style.removeProperty("top");
+    window.scrollTo(0, scrollPosition);
+    burgerMenu.removeEventListener("transitionend", supportSideBarLeave);
+}
+
+function supportMenuLeave(event) {
+    /*let target = event.target;
+    while (target !== this) {
+        if (target === closeButton) return;
+        target = target.parentNode;
+    }*/
+    burgerMenu.classList.remove("open");
+    burgerMenu.addEventListener("transitionend", supportSideBarLeave);
+    // burgerMenu.removeAttribute("style");
+}
+
+
+burgerButton.addEventListener("click", burgerButtonHandler);
+burgerMenu.addEventListener("click", supportMenuLeave);
+
+
+
+
+
+
 // Language selection
 
 let headerLangBlock = document.querySelector('.section-header .menu-lang');

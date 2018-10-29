@@ -16,6 +16,10 @@
       padding-right: @fields_sm;
       padding-left: @fields_sm;
     }
+    @media screen and (max-width: @break_header) {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
     &::before {
       content: '';
       position: absolute;
@@ -116,6 +120,51 @@
       height: 40px;
       @media screen and (max-width: @break_header) {
         display: none;
+        opacity: 0;
+        transition: opacity .3s;
+        &.open {
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 100;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100vw;
+          height: 100vh;
+          overflow: hidden;
+          background-color: @color_bg_main;
+          opacity: 1;
+          .menu {
+            &-links {
+              flex-direction: column;
+              height: auto;
+              padding-right: 0;
+              border: none;
+              li:not(:first-child) {
+                margin-top: 14px;
+                margin-left: 0;
+              }
+              li {
+                a {
+                  padding-top: 4px;
+                  padding-bottom: 4px;
+                }
+              }
+            }
+            &-lang {
+              height: auto;
+              padding-top: 12px;
+              padding-bottom: 12px;
+              padding-left: 18px;
+              margin-top: 10px;
+            }
+          }
+          .close-button {
+            display: block;
+          }
+        }
       }
       &-links {
         display: flex;
@@ -232,6 +281,49 @@
           top: 50%;
           transform: translateZ(0) translateY(-50%);
           transition: transform .2s;
+        }
+      }
+      .close-button {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        display: none;
+        padding: 5px;
+        font-size: 26px;
+        cursor: pointer;
+        &::before {
+          display: block;
+        }
+      }
+    }
+    .burger {
+      &-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 42px;
+        height: 100%;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        @media screen and (max-width: @break_header) {
+          display: flex;
+        }
+        span, &::before, &::after {
+          width: 18px;
+          height: 2px;
+          background-color: white;
+        }
+        &::before, &::after {
+          content: '';
+        }
+        &::before {
+          margin-bottom: 3px;
+        }
+        &::after {
+          margin-top: 3px;
         }
       }
     }
