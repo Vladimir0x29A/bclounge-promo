@@ -69,6 +69,10 @@
       @media screen and (max-width: @break_footer_right) {
         align-items: flex-end;
       }
+      @media screen and (max-width: @break_xs) {
+        flex-direction: column;
+        align-items: center;
+      }
     }
     &-left, &-right {
       display: flex;
@@ -76,6 +80,10 @@
       justify-content: space-between;
     }
     &-left {
+      @media screen and (max-width: @break_xs) {
+        margin-top: 50px;
+        text-align: center;
+      }
       .description {
         font-size: 18px;
         cursor: default;
@@ -112,6 +120,9 @@
       }
     }
     &-right {
+      @media screen and (max-width: @break_xs) {
+        order: -1;
+      }
       .title {
         font-size: 18px;
         text-align: right;

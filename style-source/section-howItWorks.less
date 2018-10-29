@@ -1,6 +1,7 @@
 @import "smart-grid";
 @import "variables";
 @import "colors";
+@import "breaks";
 
 .section {
   &-howItWorks {
@@ -8,6 +9,15 @@
     padding: 140px 0;
     margin-bottom: -72px;
     z-index: 1;
+    @media screen and (max-width: @break_steps_1) {
+      margin-bottom: -100px;
+    }
+    @media screen and (max-width: @break_steps_2) {
+      margin-bottom: -120px;
+    }
+    @media screen and (max-width: @break_steps_3) {
+      margin-bottom: -140px;
+    }
     .decorative {
       position: absolute;
       top: 0;

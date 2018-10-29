@@ -1,12 +1,31 @@
 @import "colors";
 @import "variables";
 @import "font";
+@import "breaks";
 
 .section {
   &-steps {
     position: relative;
     padding: 120px 0;
     margin-bottom: -12px;
+    @media screen and (max-width: @break_steps_1) {
+      margin-bottom: -30px;
+    }
+    @media screen and (max-width: @break_steps_2) {
+      margin-bottom: -70px;
+    }
+    @media screen and (max-width: @break_steps_3) {
+      margin-bottom: -130px;
+    }
+    @media screen and (max-width: @break_steps_4) {
+      margin-bottom: 250px;
+    }
+    @media screen and (max-width: @break_steps_5) {
+      margin-bottom: 200px;
+    }
+    @media screen and (max-width: @break_steps_6) {
+      margin-bottom: 150px;
+    }
     .wrapper {
       &-second {
         position: relative;
@@ -28,7 +47,32 @@
       &-image {
         position: absolute;
         top: 50%;
-        left: 26.8%;
+        //left: 26.8%;
+        left: 314px;
+        @media screen and (max-width: @break_steps_1) {
+          left: 280px;
+          transform: scale(.9);
+        }
+        @media screen and (max-width: @break_steps_2) {
+          left: 260px;
+          transform: scale(.8);
+        }
+        @media screen and (max-width: @break_steps_3) {
+          left: 220px;
+          transform: scale(.7);
+        }
+        @media screen and (max-width: @break_steps_4) {
+          top: 74%;
+          left: 50%;
+        }
+        @media screen and (max-width: @break_steps_5) {
+          top: 72%;
+          transform: scale(.6);
+        }
+        @media screen and (max-width: @break_steps_6) {
+          top: 71%;
+          transform: scale(.5);
+        }
         img {
           user-select: none;
         }
@@ -58,11 +102,24 @@
       &-text {
         position: relative;
         z-index: 1;
-        width: 270px;
-        margin-left: auto;
-        margin-right: 85px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 686px;
+        @media screen and (max-width: @break_steps_1) {
+          align-items: flex-end;
+          margin-left: 480px;
+        }
+        @media screen and (max-width: @break_steps_4) {
+          align-items: center;
+          margin-left: 0;
+        }
         &-step {
+          max-width: 270px;
           position: relative;
+          @media screen and (max-width: @break_steps_4) {
+            max-width: 350px;
+          }
           &:not(:first-child) {
             margin-top: 78px;
           }

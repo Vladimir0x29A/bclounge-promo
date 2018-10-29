@@ -75,18 +75,20 @@
           }
         }
       }
-      &:hover {
-        .item {
-          &-bg {
-            transform: scale(unit(290px / @block_size));
-            opacity: 1;
-            &::before {
+      &:not(.disabled) {
+        &:hover {
+          .item {
+            &-bg {
+              transform: scale(unit(290px / @block_size));
               opacity: 1;
+              &::before {
+                opacity: 1;
+              }
             }
-          }
-          &-content {
-            .button {
-              opacity: 1;
+            &-content {
+              .button {
+                opacity: 1;
+              }
             }
           }
         }
