@@ -19,6 +19,12 @@
     @media screen and (max-width: @break_header) {
       padding-left: 8px;
       padding-right: 8px;
+      &.open {
+        &::before {
+          opacity: 1;
+          transition-delay: 0s;
+        }
+      }
     }
     &::before {
       content: '';
@@ -30,7 +36,10 @@
       background: @color_bg_main;
       box-shadow: 0 0 30px 15px @color_bg_main;
       opacity: 0;
-      transition: opacity .2s;
+      transition: opacity .2s .05s;
+      @media screen and (max-width: @break_header) {
+        z-index: 1;
+      }
     }
     &.fixed {
       position: fixed;
@@ -38,6 +47,7 @@
       transform: translateZ(0);
       &::before {
         opacity: 1;
+        transition-delay: 0s;
       }
     }
     .wrapper {
@@ -67,6 +77,10 @@
             animation-direction: reverse;
           }
         }
+      }
+      &-block {
+        position: relative;
+        z-index: 1;
       }
       [class^="logo-item"] {
         &::before {
@@ -119,51 +133,25 @@
       display: flex;
       height: 40px;
       @media screen and (max-width: @break_header) {
-        display: none;
+        position: absolute;
+        bottom: -62px;
+        left: -8px;
+        right: -8px;
+        transform: translate(0, -52px);
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        padding-top: 15px;
+        padding-bottom: 6px;
+        background-color: @color_bg_main;
+        box-shadow: 0 0 30px 15px @color_bg_main;
         opacity: 0;
-        transition: opacity .3s;
+        transition: none .2s cubic-bezier(.4, 0, 0, 1);
+        transition-property: transform, opacity;
         &.open {
-          position: fixed;
-          top: 0;
-          left: 0;
-          z-index: 100;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 100vw;
-          height: 100vh;
-          overflow: hidden;
-          background-color: @color_bg_main;
+          transform: translate(0);
           opacity: 1;
-          .menu {
-            &-links {
-              flex-direction: column;
-              height: auto;
-              padding-right: 0;
-              border: none;
-              li:not(:first-child) {
-                margin-top: 14px;
-                margin-left: 0;
-              }
-              li {
-                a {
-                  padding-top: 4px;
-                  padding-bottom: 4px;
-                }
-              }
-            }
-            &-lang {
-              height: auto;
-              padding-top: 12px;
-              padding-bottom: 12px;
-              padding-left: 18px;
-              margin-top: 10px;
-            }
-          }
-          .close-button {
-            display: block;
-          }
+          transition-delay: .05s;
         }
       }
       &-links {
@@ -283,24 +271,13 @@
           transition: transform .2s;
         }
       }
-      .close-button {
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        display: none;
-        padding: 5px;
-        font-size: 26px;
-        cursor: pointer;
-        &::before {
-          display: block;
-        }
-      }
     }
     .burger {
       &-button {
         position: absolute;
         top: 0;
         right: 0;
+        z-index: 1;
         width: 42px;
         height: 100%;
         display: none;
