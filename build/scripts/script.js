@@ -85,4 +85,33 @@ function headerListHandler(list, block, display) {
     });
 }
 
-headerListHandler(headerLangList, headerLangBlock);
+headerListHandler(headerLangList, headerLangBlock, "flex");
+
+
+
+
+
+// Calculate blocks' size
+
+/*
+let headerMenuLinks = document.querySelector('.section-header .menu-links');
+let langWrapper = document.querySelector('.section-header .wrapper-menu > .wrapper');
+
+function setLangWrapperWidth() {
+    let windowWidth = document.documentElement.clientWidth;
+    let headerLangBlockWidth = headerLangBlock.getBoundingClientRect().width;
+    let headerLangLinksWidth = headerMenuLinks.getBoundingClientRect().width;
+    let langWrapperWidth = headerLangLinksWidth + headerLangBlockWidth;
+
+    if (windowWidth < 630) {
+        langWrapper.style.maxWidth = langWrapperWidth + "px";
+    } else {
+        langWrapper.removeAttribute("style");
+    }
+}
+
+setLangWrapperWidth();
+
+window.addEventListener("resize", function () {
+    setLangWrapperWidth();
+});*/

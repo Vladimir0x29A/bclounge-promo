@@ -87,6 +87,9 @@
             z-index: 10;
             max-width: none;
             transform: translate(-50%, -30%);
+            @media screen and (max-width: @break_xs) {
+              transform: translate(-50%, -30%) scale(.7);
+            }
           }
         }
         &-shadow {
