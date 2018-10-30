@@ -284,23 +284,44 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
         cursor: pointer;
+        outline: none;
         @media screen and (max-width: @break_header) {
-          display: flex;
+          display: block;
+        }
+        &.open {
+          span {
+            opacity: 0;
+          }
+          &::before {
+            transform: translateY(6px) rotate(45deg) scaleX(1.1);
+          }
+          &::after {
+            transform: translateY(-6px) rotate(-45deg) scaleX(1.1);
+          }
         }
         span, &::before, &::after {
+          position: absolute;
+          left: calc(50% - 9px);
           width: 18px;
           height: 2px;
           background-color: white;
         }
+        span {
+          top: calc(50% - 1px);
+          transition: opacity .2s
+        }
         &::before, &::after {
           content: '';
+          transform-origin: center;
+          transition: transform .2s;
         }
         &::before {
-          margin-bottom: 3px;
+          top: calc(50% - 7px);
         }
         &::after {
-          margin-top: 3px;
+          top: calc(50% + 5px);
         }
       }
     }

@@ -36,6 +36,7 @@ const burgerButton = document.querySelector(".burger-button");
 function burgerButtonHandler() {
     burgerMenu.classList.toggle("open");
     header.classList.toggle("open");
+    burgerButton.classList.toggle("open");
 }
 
 burgerButton.addEventListener("click", burgerButtonHandler);
