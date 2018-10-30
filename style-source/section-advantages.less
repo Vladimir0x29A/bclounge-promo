@@ -1,5 +1,6 @@
 @import "colors";
 @import "variables";
+@import "fluid";
 
 .section {
   &-advantages {
@@ -28,10 +29,18 @@
     .block {
       &-image {
         position: absolute;
-        top: calc(50% - 2px);
+        top: 735px;
+        .fluid(top, @break_advantages_2, 930px, 760px, 790px, 0, 0);
+        //top: calc(574px + 11%);
+        //bottom: calc(565px + 13%);
         left: 50%;
+        @media screen and (max-width: @break_lg) {
+          //top: auto;
+          //bottom: calc(597px + 17%);
+        }
         @media screen and (max-width: @break_md) {
-          top: calc(667px + 10%);
+          //top: calc(667px + 10%);
+          //bottom: auto;
           left: 0;
         }
         @media screen and (max-width: @break_sm) {
@@ -78,7 +87,7 @@
           //filter: drop-shadow(-30px 0 40px black);
         }
         .lines {
-          @media screen and (max-width: @break_lg) {
+          @media screen and (max-width: @break_advantages_2) {
             transform: translate(-50%, -50%) scale(.8, 1.2);
           }
           @media screen and (max-width: @break_md) {
@@ -126,7 +135,9 @@
     }
     .title-section {
       position: absolute;
-      top: 42px;
+      top: -20px;
+      //top: 42px;
+      .fluid(top, @break_advantages_2, 930px, -31px, -5px, 0, 0);
       right: calc(69.6% - 15px);
       .rem(30px);
       //font-size: 30px;
@@ -141,12 +152,13 @@
     }
     .item {
       @width_px: 307px;
-      @width_2_px: 270px;
       @advantage_offset_1: 226px / @wrapperWidth * 100%;
-      @advantage_offset_1_2: 305px / @wrapperWidth * 100%;
       @width_percent: @width_px / @wrapperWidth * 100%;
-      @width_2_percent: @width_2_px / @wrapperWidth * 100%;
       @advantage_offset_2: 50% - (@width_percent + @advantage_offset_1);
+
+      @width_2_px: 270px;
+      @advantage_offset_1_2: 270px / @wrapperWidth * 100%;
+      @width_2_percent: @width_2_px / @wrapperWidth * 100%;
       @advantage_offset_2_2: 50% - (@width_2_percent + @advantage_offset_1_2);
 
       position: relative;
@@ -206,14 +218,18 @@
         margin-left: round(@advantage_offset_1, 3);
         margin-right: round(@advantage_offset_2, 3);
       }
-      @media screen and (max-width: @break_md) {
-        &:nth-child(1),
-        &:nth-child(2),
-        &:nth-child(3),
-        &:nth-child(4),
-        &:nth-child(5) {
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        @media screen and (max-width: @break_md) {
           margin-right: 0;
           margin-left: 0;
+        }
+        @media screen and (max-width: @break_md) {
+          margin-top: 24px;
+          margin-bottom: 24px;
         }
       }
 
@@ -232,8 +248,22 @@
       }
 
       // Margins
+      &:nth-child(1) {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      &:nth-child(2), &:nth-child(5) {
+        //margin-top: 42px;
+        //margin-bottom: 42px;
+        .fluid(margin-top, @break_advantages_2, 930px, 42px, 28px, 1, 0);
+        .fluid(margin-bottom, @break_advantages_2, 930px, 42px, 18px, 1, 0);
+      }
       &:nth-child(3), &:nth-child(4) {
-        margin-top: 24px;
+        margin-top: 0;
+        margin-bottom: 0;
+        @media screen and (max-width: @break_lg) {
+
+        }
       }
 
       // Ghost numbers
@@ -266,8 +296,10 @@
         }
       }
       &:nth-child(2) {
-        width: round(@width_2_percent, 3);
-        margin-right: round(@advantage_offset_2_2, 3);
+        width: round(50% - @advantage_offset_1_2, 3);
+        //width: round(@width_2_percent, 3);
+        //margin-right: round(@advantage_offset_2_2, 3);
+        margin-right: 0;
         margin-left: round(@advantage_offset_1_2, 3);
         &::before {
           content: '2';
@@ -285,9 +317,11 @@
         }
       }
       &:nth-child(5) {
-        width: round(@width_2_percent, 3);
+        width: round(50% - @advantage_offset_1_2, 3);
+        //width: round(@width_2_percent, 3);
         margin-right: round(@advantage_offset_1_2, 3);
-        margin-left: round(@advantage_offset_2_2, 3);
+        margin-left: 0;
+        //margin-left: round(@advantage_offset_2_2, 3);
         &::before {
           content: '5';
           right: 2px;
