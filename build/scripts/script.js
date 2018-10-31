@@ -91,20 +91,23 @@ headerListHandler(headerLangList, headerLangBlock, "flex");
 
 
 
-// Calculate blocks' size
+// Calculate blocks' size to set as language selector wrapper size
 
-/*
+let windowWidth;
+
 let headerMenuLinks = document.querySelector('.section-header .menu-links');
 let langWrapper = document.querySelector('.section-header .wrapper-menu > .wrapper');
 
+let langWrapperWidth, previousLangWrapperWidth;
+
 function setLangWrapperWidth() {
-    let windowWidth = document.documentElement.clientWidth;
     let headerLangBlockWidth = headerLangBlock.getBoundingClientRect().width;
     let headerLangLinksWidth = headerMenuLinks.getBoundingClientRect().width;
-    let langWrapperWidth = headerLangLinksWidth + headerLangBlockWidth;
+    previousLangWrapperWidth = langWrapperWidth;
+    langWrapperWidth = headerLangLinksWidth + headerLangBlockWidth;
 
     if (windowWidth < 630) {
-        langWrapper.style.maxWidth = langWrapperWidth + "px";
+        if (langWrapperWidth !== previousLangWrapperWidth) langWrapper.style.maxWidth = langWrapperWidth + "px";
     } else {
         langWrapper.removeAttribute("style");
     }
@@ -112,6 +115,43 @@ function setLangWrapperWidth() {
 
 setLangWrapperWidth();
 
-window.addEventListener("resize", function () {
+
+
+
+
+// Adaptive scale
+
+let image = document.querySelector('.section-slogan .button');
+
+function scale(docobj, maxScreen, minScreen, maxValue, minValue, additionalString) {
+    // console.log(getComputedStyle(docobj).transform);
+
+    let m = (maxValue - minValue) / (maxScreen - minScreen);
+    let b = minValue - m * minScreen;
+    let result = Math.floor((windowWidth * m + b) * 100) / 100;
+    additionalString = additionalString || "";
+
+    if (windowWidth < maxScreen && windowWidth > minScreen) {
+        docobj.style.transform = additionalString + `scale(${result})`;
+    } else {
+        docobj.removeAttribute("style");
+    }
+}
+
+
+
+
+
+function eventWindowResize(fn) {
+    windowWidth = document.documentElement.clientWidth;
+    fn();
+    window.addEventListener("resize", function () {
+        windowWidth = document.documentElement.clientWidth;
+        fn();
+    });
+}
+
+eventWindowResize(function () {
     setLangWrapperWidth();
-});*/
+    scale(image, 767, 560, 1, .8);
+});
