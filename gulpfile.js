@@ -80,7 +80,7 @@ gulp.task('css', function () {
         //    cascade: false
         //}))
         .pipe(rename('style.css'))
-        .pipe(gulp.dest('build/style'))
+        .pipe(gulp.dest('build'))
         .pipe(connect.reload());
 });
 
