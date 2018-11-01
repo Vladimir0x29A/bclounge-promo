@@ -19,17 +19,17 @@
     }
     @media screen and (max-width: @break_steps_4) {
       display: flex;
-      margin-bottom: 250px;
+      margin-bottom: 210px;
     }
     @media screen and (max-width: @break_steps_5) {
-      margin-bottom: 200px;
+      margin-bottom: 150px;
     }
     @media screen and (max-width: @break_steps_6) {
-      margin-bottom: 150px;
+      margin-bottom: 110px;
     }
     > .wrapper {
       @media screen and (max-width: @break_xs) {
-        padding-left: 44px;
+        padding-left: 60px;
       }
     }
     .wrapper {
@@ -68,15 +68,15 @@
           transform: scale(.7);
         }
         @media screen and (max-width: @break_steps_4) {
-          top: 74%;
+          top: 70%;
           left: 50%;
         }
         @media screen and (max-width: @break_steps_5) {
-          top: 72%;
+          top: 69%;
           transform: scale(.6);
         }
         @media screen and (max-width: @break_steps_6) {
-          top: 71%;
+          top: 68%;
           transform: scale(.5);
         }
         img {
@@ -188,6 +188,9 @@
           line-height: 1.2;
           text-align: center;
           letter-spacing: 1.3px;
+          @media screen and (max-width: @break_steps_4) {
+            display: none;
+          }
         }
         &::before, &::after {
           position: absolute;

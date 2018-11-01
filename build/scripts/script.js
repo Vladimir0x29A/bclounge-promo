@@ -123,7 +123,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Adaptive scale
 
-    let image = document.querySelector('.section-slogan .button');
+    let imageSlogan = document.querySelector('.section-slogan .button');
+    // let imageSteps = document.querySelector('.section-steps .block-image');
 
     function scale(docobj, maxScreen, minScreen, maxValue, minValue, additionalString) {
         // console.log(getComputedStyle(docobj).transform);
@@ -155,7 +156,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     eventWindowResize(function () {
         setLangWrapperWidth();
-        scale(image, 767, 560, 1, .8);
+        scale(imageSlogan, 767, 560, 1, .8);
+        // scale(imageSteps, 860, 460, .7, .5);
     });
 
 });
