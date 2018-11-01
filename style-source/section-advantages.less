@@ -31,6 +31,10 @@
         position: absolute;
         top: 735px;
         .fluid(top, @break_advantages_2, 930px, 760px, 790px, 0, 0);
+        .fluid(top, @break_md, @break_sm, 840px, 880px, 0, 0);
+        .fluid(top, @break_sm, @break_advantages, 820px, 850px, 0, 0);
+        .fluid(top, @break_advantages, @break_xs, 830px, 840px, 0, 0);
+        .fluid(top, @break_xs, 480px, 792px, 805px, 0, 0);
         //top: calc(574px + 11%);
         //bottom: calc(565px + 13%);
         left: 50%;
@@ -39,22 +43,23 @@
           //bottom: calc(597px + 17%);
         }
         @media screen and (max-width: @break_md) {
+          left: 0;
+          //top: 840px;
           //top: calc(667px + 10%);
           //bottom: auto;
-          left: 0;
         }
         @media screen and (max-width: @break_sm) {
-          top: calc(667px + 9.5%);
-          transform: scale(.9);
+          //top: calc(667px + 9.5%);
+          //transform: scale(.9);
         }
         @media screen and (max-width: @break_advantages) {
-          top: 46%;
-          transform: scale(.8);
+          //top: 46%;
+          transform: scale(.9);
           //top: 50%;
           //left: 50%;
         }
         @media screen and (max-width: @break_xs) {
-          transform: scale(.7);
+          transform: scale(.8);
         }
         &::before, &::after {
           position: absolute;
@@ -69,6 +74,17 @@
           height: 1476px;
           background: @gradient_slogan;
           opacity: .5;
+        }
+        .logo, .shadow {
+          @media screen and (max-width: @break_md) {
+            transform: translate(-50%, -50%) scale(1.4);
+          }
+          @media screen and (max-width: @break_sm) {
+            transform: translate(-50%, -50%) scale(1.2);
+          }
+          @media screen and (max-width: @break_advantages) {
+            transform: translate(-50%, -50%) scale(1.1);
+          }
         }
         .logo, .lines, .shadow {
           position: absolute;
@@ -91,7 +107,7 @@
             transform: translate(-50%, -50%) scale(.8, 1.2);
           }
           @media screen and (max-width: @break_md) {
-            transform: translate(-50%, -50%) scale(.9);
+            transform: translate(-50%, -50%) scale(1, .9);
           }
           @media screen and (max-width: @break_sm) {
             transform: translate(-50%, -50%) scale(.8, .9);
@@ -103,7 +119,8 @@
         &:nth-child(2) {
           display: none;
           top: auto;
-          bottom: calc(592px + 9%);
+          //bottom: calc(592px + 9%);
+          bottom: 710px;
           left: auto;
           right: 0;
           //top: 58.7%;
@@ -114,16 +131,21 @@
             }
           }
           @media screen and (max-width: @break_sm) {
-            bottom: calc(592px + 8%);
+            bottom: 700px;
+            //bottom: calc(592px + 8%);
             //top: 59%;
           }
           @media screen and (max-width: @break_advantages) {
             //top: 59.6%;
             //display: none;
+            .lines {
+              transform: translate(-50%, -50%) scale(.6, .9);
+            }
           }
           @media screen and (max-width: @break_xs) {
+            bottom: 690px;
             .lines {
-              transform: translate(-50%, -50%) scale(.6, 1.2);
+              transform: translate(-50%, -50%) scale(.6, .9);
             }
           }
         }
@@ -223,13 +245,15 @@
       &:nth-child(3),
       &:nth-child(4),
       &:nth-child(5) {
+        .fluid(margin-top, @break_advantages, 480px, 30px, 22px, 0, 0);
+        .fluid(margin-bottom, @break_advantages, 480px, 30px, 22px, 0, 0);
         @media screen and (max-width: @break_md) {
           margin-right: 0;
           margin-left: 0;
         }
         @media screen and (max-width: @break_md) {
-          margin-top: 24px;
-          margin-bottom: 24px;
+          margin-top: 30px;
+          margin-bottom: 30px;
         }
       }
 

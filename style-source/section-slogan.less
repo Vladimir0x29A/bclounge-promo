@@ -204,7 +204,9 @@
       margin-top: 46px;
       color: @color_slogan_description;
       line-height: 1.5;
+      max-width: calc(50% - 10px);
       @media screen and (max-width: @break_lg) {
+        max-width: none;
         text-align: center;
         text-shadow: 2px 2px 2px fade(black, 50%);
       }
