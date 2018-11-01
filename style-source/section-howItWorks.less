@@ -18,6 +18,9 @@
     @media screen and (max-width: @break_steps_3) {
       margin-bottom: -140px;
     }
+    @media screen and (max-width: @break_header) {
+      padding: 150px 0;
+    }
     .decorative {
       position: absolute;
       top: 0;
@@ -36,6 +39,9 @@
         margin: 0 auto;
         background: url("@{image_path_post}/background-parallelogram-02.svg") center no-repeat;
         background-size: cover;
+        @media screen and (max-width: @break_header) {
+          height: calc(100% - 213px);
+        }
       }
     }
     .wrapper {

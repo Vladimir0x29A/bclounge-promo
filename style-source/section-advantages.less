@@ -18,9 +18,6 @@
         top: -550px;
         bottom: -550px;
         overflow: hidden;
-        @media screen and (max-width: @break_md) {
-          //display: none;
-        }
         > .wrapper {
           height: 100%;
         }
@@ -35,28 +32,12 @@
         .fluid(top, @break_sm, @break_advantages, 820px, 850px, 0, 0);
         .fluid(top, @break_advantages, @break_xs, 830px, 840px, 0, 0);
         .fluid(top, @break_xs, 480px, 792px, 805px, 0, 0);
-        //top: calc(574px + 11%);
-        //bottom: calc(565px + 13%);
         left: 50%;
-        @media screen and (max-width: @break_lg) {
-          //top: auto;
-          //bottom: calc(597px + 17%);
-        }
         @media screen and (max-width: @break_md) {
           left: 0;
-          //top: 840px;
-          //top: calc(667px + 10%);
-          //bottom: auto;
-        }
-        @media screen and (max-width: @break_sm) {
-          //top: calc(667px + 9.5%);
-          //transform: scale(.9);
         }
         @media screen and (max-width: @break_advantages) {
-          //top: 46%;
           transform: scale(.9);
-          //top: 50%;
-          //left: 50%;
         }
         @media screen and (max-width: @break_xs) {
           transform: scale(.8);
@@ -92,9 +73,6 @@
           transform: translate(-50%, -50%);
           max-width: none;
           user-select: none;
-          @media screen and (max-width: @break_advantages) {
-            //display: none;
-          }
         }
         .shadow {
           top: 4px;
@@ -119,11 +97,9 @@
         &:nth-child(2) {
           display: none;
           top: auto;
-          //bottom: calc(592px + 9%);
           bottom: 710px;
           left: auto;
           right: 0;
-          //top: 58.7%;
           @media screen and (max-width: @break_md) {
             display: block;
             .lines {
@@ -132,12 +108,8 @@
           }
           @media screen and (max-width: @break_sm) {
             bottom: 700px;
-            //bottom: calc(592px + 8%);
-            //top: 59%;
           }
           @media screen and (max-width: @break_advantages) {
-            //top: 59.6%;
-            //display: none;
             .lines {
               transform: translate(-50%, -50%) scale(.6, .9);
             }
@@ -222,9 +194,6 @@
 
       &:nth-child(5), &:nth-child(4) {
         text-align: right;
-        /*@media screen and (max-width: @break_advantages) {
-          text-align: left;
-        }*/
       }
 
       // Margins
@@ -257,7 +226,16 @@
         }
       }
 
-      // Ordering
+      &:nth-child(5) {
+        @media screen and (max-width: @break_md) {
+          margin-top: 50px;
+        }
+        @media screen and (max-width: @break_advantages) {
+          margin-top: 60px;
+        }
+      }
+
+        // Ordering
       &:nth-child(5), &:nth-child(1) {
         order: -2;
         @media screen and (max-width: @break_md) {
@@ -277,17 +255,12 @@
         margin-bottom: 0;
       }
       &:nth-child(2), &:nth-child(5) {
-        //margin-top: 42px;
-        //margin-bottom: 42px;
         .fluid(margin-top, @break_advantages_2, 930px, 42px, 28px, 1, 0);
         .fluid(margin-bottom, @break_advantages_2, 930px, 42px, 18px, 1, 0);
       }
       &:nth-child(3), &:nth-child(4) {
         margin-top: 0;
         margin-bottom: 0;
-        @media screen and (max-width: @break_lg) {
-
-        }
       }
 
       // Ghost numbers
@@ -298,7 +271,6 @@
         transform: translate(-50%, -50%);
         color: @color_text_ghost;
         .rem(150px);
-        //font-size: 150px;
         font-weight: bold;
         opacity: .05;
       }
@@ -307,11 +279,6 @@
           left: unset;
           right: -10px;
           transform: translate(50%, -50%);
-          /*@media screen and (max-width: @break_advantages) {
-            left: -10px;
-            right: auto;
-            transform: translate(-50%, -50%);
-          }*/
         }
       }
       &:nth-child(1) {
@@ -321,8 +288,6 @@
       }
       &:nth-child(2) {
         width: round(50% - @advantage_offset_1_2, 3);
-        //width: round(@width_2_percent, 3);
-        //margin-right: round(@advantage_offset_2_2, 3);
         margin-right: 0;
         margin-left: round(@advantage_offset_1_2, 3);
         &::before {
@@ -342,10 +307,8 @@
       }
       &:nth-child(5) {
         width: round(50% - @advantage_offset_1_2, 3);
-        //width: round(@width_2_percent, 3);
         margin-right: round(@advantage_offset_1_2, 3);
         margin-left: 0;
-        //margin-left: round(@advantage_offset_2_2, 3);
         &::before {
           content: '5';
           right: 2px;
@@ -356,12 +319,10 @@
       @media screen and (max-width: @break_xs) {
         // Max-width
         &:nth-child(1),
-        &:nth-child(3),
-        &:nth-child(5) {
-          width: calc(100% - 100px);
-        }
         &:nth-child(2),
-        &:nth-child(4) {
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5) {
           width: calc(100% - 120px);
         }
         // Align
@@ -376,60 +337,58 @@
         }
         // Margins
         &:nth-child(1),
+        &:nth-child(2),
         &:nth-child(3) {
-          margin-left: 100px;
-        }
-        &:nth-child(2) {
           margin-left: 120px;
         }
-        &:nth-child(4) {
+        &:nth-child(4),
+        &:nth-child(5) {
           margin-right: 120px;
         }
-        &:nth-child(5) {
-          margin-right: 100px;
-        }
       }
-      &:nth-child(2) {
+      &:nth-child(1), &:nth-child(2), &:nth-child(3) {
         @media screen and (max-width: @break_md) {
           left: 60px;
         }
         @media screen and (max-width: @break_sm) {
           left: 40px;
         }
-        @media screen and (max-width: @break_advantages) {
-          //left: auto;
-        }
         @media screen and (max-width: @break_xs) {
           left: auto;
         }
       }
-      &:nth-child(4) {
+      &:nth-child(4), &:nth-child(5) {
         @media screen and (max-width: @break_md) {
           right: 60px;
         }
         @media screen and (max-width: @break_sm) {
           right: 40px;
         }
-        @media screen and (max-width: @break_advantages) {
-          //right: auto;
-        }
         @media screen and (max-width: @break_xs) {
           right: auto;
+        }
+      }
+
+      &:nth-child(2) {
+        @media screen and (max-width: @break_advantages) {
+          max-width: 410px;
+          align-self: flex-end;
         }
       }
 
       &-title {
         position: relative;
         display: block;
-        margin-bottom: 5px;
         color: @color_gameSelect_text;
         .rem(20px);
-        //font-size: 20px;
       }
       &-description {
         position: relative;
         display: block;
         line-height: 1.2;
+      }
+      span:nth-child(2) {
+        margin-top: 5px;
       }
     }
   }

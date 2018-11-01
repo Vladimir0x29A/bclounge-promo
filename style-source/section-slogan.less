@@ -205,6 +205,20 @@
       color: @color_slogan_description;
       line-height: 1.5;
       max-width: calc(50% - 10px);
+      > br {
+        @media screen and (max-width: @break_xs) {
+          display: none;
+        }
+        &:nth-child(2) {
+          display: none;
+          @media screen and (max-width: @break_lg) {
+            display: initial;
+          }
+          @media screen and (max-width: @break_xs) {
+            display: none;
+          }
+        }
+      }
       @media screen and (max-width: @break_lg) {
         max-width: none;
         text-align: center;
