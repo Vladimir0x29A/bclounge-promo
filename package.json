@@ -17,5 +17,8 @@
     "gulp-rename": "^1.4.0",
     "gulp-rsync": "0.0.8",
     "smart-grid": "^2.1.2"
+  },
+  "dependencies": {
+    "gulp-autoprefixer": "^6.0.0"
   }
 }

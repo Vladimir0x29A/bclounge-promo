@@ -1,5 +1,5 @@
 const gulp = require('gulp'),
-    // autoprefixer = require('gulp-autoprefixer'),
+    autoprefixer = require('gulp-autoprefixer'),
     connect = require('gulp-connect'),
     //sass = require('gulp-sass'),
     rename = require('gulp-rename'),
@@ -75,10 +75,10 @@ gulp.task('css', function () {
         .pipe(cleancss({
             level: 2
         }))
-        //.pipe(autoprefixer({
-        //    browsers: ['last 15 versions'],
-        //    cascade: false
-        //}))
+        /*.pipe(autoprefixer({
+           browsers: ['last 15 versions'],
+           cascade: false
+        }))*/
         .pipe(rename('style.css'))
         .pipe(gulp.dest('build'))
         .pipe(connect.reload());
