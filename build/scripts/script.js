@@ -35,13 +35,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const burgerMenu = document.querySelector(".section-header .menu");
     const burgerButton = document.querySelector(".burger-button");
 
+    function headerMenuHandler(list, block, display) {
+        block.addEventListener("click", function () {
+            if (list.classList.contains('open')) {
+                headerListHide(list, block);
+            } else {
+                list.style.display = display || "block";
+                raf(function () {
+                    list.classList.add('open');
+                    block.classList.add('open');
+                });
+            }
+        });
+    }
+
     function burgerButtonHandler() {
-        burgerMenu.classList.toggle("open");
         header.classList.toggle("open");
-        burgerButton.classList.toggle("open");
     }
 
     burgerButton.addEventListener("click", burgerButtonHandler);
+    headerMenuHandler(burgerMenu, burgerButton, "flex");
 
 
 
