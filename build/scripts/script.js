@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 raf(function () {
                     list.classList.add('open');
                     block.classList.add('open');
+                    setLangWrapperWidth();
                 });
             }
         });
@@ -121,14 +122,12 @@ document.addEventListener('DOMContentLoaded', function () {
         previousLangWrapperWidth = langWrapperWidth;
         langWrapperWidth = headerLangLinksWidth + headerLangBlockWidth;
 
-        if (windowWidth < 630) {
-            if (langWrapperWidth !== previousLangWrapperWidth) langWrapper.style.maxWidth = langWrapperWidth + "px";
+        if (windowWidth <= 560 && langWrapperWidth !== 0) {
+            langWrapper.style.maxWidth = langWrapperWidth + "px";
         } else {
             langWrapper.removeAttribute("style");
         }
     }
-
-    setLangWrapperWidth();
 
 
 

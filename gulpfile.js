@@ -75,10 +75,10 @@ gulp.task('css', function () {
         .pipe(cleancss({
             level: 2
         }))
-        /*.pipe(autoprefixer({
+        .pipe(autoprefixer({
            browsers: ['last 15 versions'],
            cascade: false
-        }))*/
+        }))
         .pipe(rename('style.css'))
         .pipe(gulp.dest('build'))
         .pipe(connect.reload());
