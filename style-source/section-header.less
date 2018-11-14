@@ -88,6 +88,12 @@
       height: 42px;
       &:hover {
         .logo-item {
+          &-entire {
+            display: none;
+          }
+          &-b, &-inner, &-outer {
+            display: initial;
+          }
           &-inner, &-outer {
             animation: animate-logo 2s infinite linear;
           }
@@ -110,6 +116,17 @@
         }
       }
       .logo-item {
+        &-b, &-inner, &-outer {
+          display: none;
+        }
+        &-entire {
+          top: -.5px;
+          left: -4.6px;
+          &::before {
+            content: @icomoon-logo-entire;
+            font-size: 41px;
+          }
+        }
         &-b {
           top: 50%;
           left: 17px;
