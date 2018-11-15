@@ -137,6 +137,7 @@
         top: 0;
         width: 100%;
         height: 100%;
+        padding-bottom: @block_padding_percent;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
@@ -163,8 +164,8 @@
           }
         }
         span {
-          position: absolute;
-          bottom: @block_padding_percent;
+          //position: absolute;
+          //bottom: @block_padding_percent;
           transform: translateY(50%);
           color: @color_gameSelect_text;
           .rem(20px);
