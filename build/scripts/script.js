@@ -65,11 +65,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let headerLangBlock = document.querySelector('.section-header .menu-lang');
     let headerLangList = document.querySelector('.section-header .menu-lang-select');
+    let menuWrapper = document.querySelector('.section-header .wrapper .wrapper-menu');
 
-    function headerListHide(list, block) {
+    function headerListHide(list, block, wrapper) {
         let handlerLangBlockTransitionLeave = function () {
             if (!list.classList.contains("open")) {
-                list.removeAttribute("style");
+                wrapper.removeAttribute("style");
             }
             list.removeEventListener('transitionend', handlerLangBlockTransitionLeave);
         };
@@ -79,12 +80,12 @@ document.addEventListener('DOMContentLoaded', function () {
         list.addEventListener('transitionend', handlerLangBlockTransitionLeave);
     }
 
-    function headerListHandler(list, block, display) {
+    function headerListHandler(list, block, wrapper) {
         block.addEventListener("click", function () {
             if (list.classList.contains('open')) {
-                headerListHide(list, block);
+                headerListHide(list, block, wrapper);
             } else {
-                list.style.display = display || "block";
+                wrapper.style.display = "block";
                 raf(function () {
                     list.classList.add('open');
                     block.classList.add('open');
@@ -95,13 +96,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener("click", function (e) {
             if (!block.contains(e.target)) {
                 if (list.classList.contains('open')) {
-                    headerListHide(list, block);
+                    headerListHide(list, block, wrapper);
                 }
             }
         });
     }
 
-    headerListHandler(headerLangList, headerLangBlock, "flex");
+    headerListHandler(headerLangList, headerLangBlock, menuWrapper);
 
 
 
