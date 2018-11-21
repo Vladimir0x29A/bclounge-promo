@@ -1,4 +1,6 @@
 const gulp = require('gulp'),
+    babel = require('gulp-babel'),
+    uglify = require('gulp-uglify'),
     autoprefixer = require('gulp-autoprefixer'),
     connect = require('gulp-connect'),
     //sass = require('gulp-sass'),
@@ -64,6 +66,16 @@ gulp.task('reload', function () {
         .pipe(connect.reload());
 });
 
+gulp.task('js', function () {
+    gulp.src('scripts-source/script.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest('build/scripts'))
+        .pipe(connect.reload());
+});
+
 gulp.task('css', function () {
     return gulp.src('style-source/main.less')
         .pipe(less())
@@ -87,9 +99,9 @@ gulp.task('css', function () {
 gulp.task('watch', function () {
     gulp.watch('style-source/*.less', ['css']);
     gulp.watch('build/index.html', ['reload']);
-    gulp.watch('build/scripts/!*.js', ['reload']);
-    gulp.watch('build/img/!*.*', ['reload']);
-    gulp.watch('build/fonts/!*.*', ['reload']);
+    gulp.watch('build/scripts/*.js', ['js']);
+    gulp.watch('build/img/*.*', ['reload']);
+    gulp.watch('build/fonts/*.*', ['reload']);
 });
 
-gulp.task('default', ['connect', 'css', 'watch']);
+gulp.task('default', ['connect', 'css', 'js', 'watch']);
