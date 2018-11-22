@@ -1,0 +1,9 @@
+/node_modules
+/.idea
+package-lock.json
+#package.json
+#.gitignore
+#scripts-source/
+/img-source/Thumbs.db
+/build/scripts
+build/style.css

@@ -71,7 +71,7 @@ gulp.task('js', function () {
         .pipe(babel({
             presets: ['@babel/env']
         }))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest('build/scripts'))
         .pipe(connect.reload());
 });
