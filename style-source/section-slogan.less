@@ -248,6 +248,9 @@
       text-shadow: 0 2px 5px rgba(0, 34, 81, .51);
       background: url("@{image_post}");
       user-select: none;
+      &.cn a span {
+        transform: translateZ(0) translate(-4px) skewX(41deg);
+      }
       @media screen and (max-width: @break_sm) {
         transform: scale(.8);
       }
