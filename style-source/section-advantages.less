@@ -81,7 +81,7 @@
         }
         .logo {
           top: 12px;
-          filter: drop-shadow(0 7px 10px rgba(0, 0, 0, .5));
+          filter: drop-shadow(0 0 10px rgba(0, 169, 228, .45));
           /*@media screen and (max-width: @break_advantages_2) {
             top: 15px;
           }*/
@@ -301,7 +301,7 @@
       &:nth-child(2) {
         width: round(50% - @advantage_offset_1_2, 3);
         margin-right: 0;
-        margin-left: round(@advantage_offset_1_2, 3);
+        margin-left: round(@advantage_offset_1_2 + 50%, 3);
         &::before {
           content: '2';
         }
