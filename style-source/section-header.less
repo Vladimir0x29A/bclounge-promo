@@ -158,6 +158,9 @@
             border-bottom: 2px solid transparent;
             user-select: none;
             transition: border-color .2s;
+            @media screen and (max-width: 360px) {
+              font-size: 13px;
+            }
             &:hover {
               border-color: @color_menu_link_hover;
             }
