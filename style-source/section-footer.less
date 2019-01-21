@@ -1,6 +1,7 @@
 @import "icomoon";
 @import "colors";
 @import "breaks";
+@import "fluid";
 @import "variables";
 
 .section-footer {
@@ -42,11 +43,11 @@
     justify-content: center;
     align-items: center;
     font-size: 0;
-    a, span {
+    a {
       cursor: pointer;
       transition: color 0.2s;
       & + a {
-        margin-left: 96px;
+        .fluid(margin-left, @break_lg, 320px, 96px, 36px, 1, 0);
       }
       &:before {
         font-size: 24px;
