@@ -1,6 +1,7 @@
 @icomoon-font-family: "icomoon";
 @icomoon-font-path: "../fonts";
 
+@icomoon-tron: "\e92e";
 @icomoon-logo-tron: "\e92d";
 @icomoon-telegram-arrow: "\e903";
 @icomoon-etz: "\e921";
@@ -71,6 +72,11 @@
 }
 
 .icomoon {
+  &-tron {
+    &:before {
+      content: @icomoon-tron;
+    }
+  }
   &-logo-text {
     &:before {
       content: @icomoon-logo-text;
