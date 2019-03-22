@@ -1,6 +1,8 @@
 @icomoon-font-family: "icomoon";
 @icomoon-font-path: "../fonts";
 
+@icomoon-tron: "\e92e";
+@icomoon-logo-tron: "\e92d";
 @icomoon-telegram-arrow: "\e903";
 @icomoon-etz: "\e921";
 @icomoon-arrow-double: "\e908";
@@ -29,9 +31,10 @@
 @icomoon-safety: "\e91d";
 @icomoon-balance: "\e91e";
 @icomoon-user: "\e919";
+@icomoon-medium: "\e927";
 @icomoon-telegram: "\e904";
 @icomoon-etherscan: "\e903";
-@icomoon-steemit: "\e902";
+@icomoon-steemit: "\e922";
 @icomoon-ethereum: "\e900";
 @icomoon-exit: "\e901";
 @icomoon-facebook: "\ea90";
@@ -69,6 +72,11 @@
 }
 
 .icomoon {
+  &-tron {
+    &:before {
+      content: @icomoon-tron;
+    }
+  }
   &-logo-text {
     &:before {
       content: @icomoon-logo-text;
@@ -157,6 +165,11 @@
   &-user {
     &:before {
       content: @icomoon-user;
+    }
+  }
+  &-medium {
+    &:before {
+      content: @icomoon-medium;
     }
   }
   &-telegram {

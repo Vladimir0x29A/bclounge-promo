@@ -88,84 +88,25 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      width: 132px;
       height: 42px;
-      &:hover {
-        .logo-item {
-          &-entire {
-            display: none;
-          }
-          &-b, &-inner, &-outer {
-            display: initial;
-          }
-          &-inner, &-outer {
-            animation: animate-logo 2s infinite linear;
-          }
-          &-outer {
-            animation-direction: reverse;
-          }
-        }
+      &::before, &::after {
+        &:extend(.im);
+      }
+      &::before {
+        content: @icomoon-logo-tron;
+        display: inline-block;
+        margin-right: 8px;
+        font-size: 34px;
+        color: @color-yellow;
+      }
+      &::after {
+        content: @icomoon-logo-text;
+        color: white;
+        font-size: 23px;
       }
       &-block {
         position: relative;
         z-index: 1;
-      }
-      [class^="logo-item"] {
-        &::before {
-        &:extend(.im);
-        }
-        &:not(.logo-item-text) {
-          position: absolute;
-          color: @color-yellow;
-        }
-      }
-      .logo-item {
-        &-b, &-inner, &-outer {
-          display: none;
-        }
-        &-entire {
-          top: -.5px;
-          left: -4.6px;
-          &::before {
-            content: @icomoon-logo-entire;
-            font-size: 41px;
-          }
-        }
-        &-b {
-          top: 50%;
-          left: 17px;
-          transform: translate(-50%, -50%) scale(.9);
-          &::before {
-            content: @icomoon-logo-bitcoin;
-            font-size: 18px;
-          }
-        }
-        &-inner {
-          top: 6.6px;
-          left: 4px;
-          transform-origin: 50% 46%;
-          &::before {
-            content: @icomoon-logo-circle-inner;
-            font-size: 26px;
-          }
-        }
-        &-outer {
-          top: -.5px;
-          left: -4.6px;
-          transform-origin: 51% 48%;
-          &::before {
-            content: @icomoon-logo-circle-outer;
-            font-size: 41px;
-          }
-        }
-        &-text {
-          padding-top: 1px;
-          &::before {
-            content: @icomoon-logo-text;
-            color: white;
-            font-size: 25px;
-          }
-        }
       }
     }
     .menu {
@@ -217,6 +158,9 @@
             border-bottom: 2px solid transparent;
             user-select: none;
             transition: border-color .2s;
+            @media screen and (max-width: 360px) {
+              font-size: 13px;
+            }
             &:hover {
               border-color: @color_menu_link_hover;
             }
