@@ -115,7 +115,8 @@
           @media screen and (max-width: @break_md) {
             display: block;
             .lines {
-              clip: rect(140px, 437px, 326px, 0);
+              clip: rect(0, 437px, 86px, 0);
+              transform: translate(-50%, -50%) scale(1, -.8);
             }
           }
           /*@media screen and (max-width: @break_sm) {
@@ -123,7 +124,7 @@
           }*/
           @media screen and (max-width: @break_advantages) {
             .lines {
-              transform: translate(-50%, -50%) scale(.6, .9);
+              transform: translate(-50%, -50%) scale(.6, -.8);
             }
           }
           @media screen and (max-width: @break_xs) {
