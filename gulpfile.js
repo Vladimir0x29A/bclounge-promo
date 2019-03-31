@@ -99,7 +99,7 @@ gulp.task('css', function () {
 gulp.task('watch', function () {
     gulp.watch('style-source/*.less', ['css']);
     gulp.watch('build/index.html', ['reload']);
-    gulp.watch('build/scripts/*.js', ['js']);
+    gulp.watch('scripts-source/*.js', ['js']);
     gulp.watch('build/img/*.*', ['reload']);
     gulp.watch('build/fonts/*.*', ['reload']);
 });
