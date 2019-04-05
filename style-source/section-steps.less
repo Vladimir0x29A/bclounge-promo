@@ -140,12 +140,10 @@
           user-select: none;
         }
         &-bg {
-          &::before, &::after, img {
+          &::after,
+          img {
             position: absolute;
             transform: translate(-50%, -50%);
-          }
-          &::before {
-            content: url("@{image_path_post}/background-touches.png");
           }
           &::after {
             content: '';
@@ -495,7 +493,8 @@
             filter: drop-shadow(0 0 5px rgba(0, 169, 228, .34));
           }
         }
-        &::before, &::after {
+        &::before,
+        &::after {
           content: '';
         }
         &::before {

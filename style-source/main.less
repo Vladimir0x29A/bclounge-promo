@@ -33,3 +33,15 @@ body {
 .wrapper {
   .wrapper();
 }
+
+.touches {
+  &::before {
+    position: absolute;
+    content: '';
+    width: 1300px;
+    height: 1300px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1300' height='1300'%3E%3Cfilter id='b' width='100%25' height='100%25' x='0' y='0'%3E%3CfeTurbulence baseFrequency='.001 .4' numOctaves='2' type='fractalNoise'/%3E%3CfeColorMatrix values='0 0 0 0 0 .07 0 0 0 0 .4 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3CradialGradient id='a'%3E%3Cstop offset='0' stop-color='%23fff'/%3E%3Cstop offset='1'/%3E%3C/radialGradient%3E%3Cmask id='c' x='0' y='0' width='100%25' height='100%25'%3E%3Ccircle cx='50%25' cy='50%25' r='50%25' fill='url(%23a)'/%3E%3C/mask%3E%3Crect width='100%25' height='100%25' filter='url(%23b)' mask='url(%23c)'/%3E%3C/svg%3E");
+    transform: translate(-50%, -50%) rotate(-141deg);
+    opacity: .4;
+  }
+}

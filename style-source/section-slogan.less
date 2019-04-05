@@ -99,12 +99,10 @@
           position: absolute;
           top: 30px;
           left: 50%;
-          &::before, &::after, img {
+          &::after,
+          img {
             position: absolute;
             transform: translate(-50%, -50%);
-          }
-          &::before {
-            content: url("@{image_path_post}/background-touches.png");
           }
           &::after {
             content: '';
