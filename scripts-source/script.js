@@ -314,9 +314,9 @@
         }
 
         const lineLengthMd = 40;
-        const lineOffsetXFirstMd = 95, lineOffsetYFirstMd = 55;
+        const lineOffsetXFirstMd = 95, lineOffsetYFirstMd = 115;
         const lineOffsetXSecondMd = 95;
-        const lineOffsetXThirdMd = 45, lineOffsetYThirdMd = 250;
+        const lineOffsetXThirdMd = 45, lineOffsetYThirdMd = 80;
 
         function advDrawLinesMd() {
             let advSvgWidth = advItem1.getBoundingClientRect().left - 40;
@@ -344,9 +344,9 @@
 
             advSvgLinesPathBorder.setAttribute("d", `M .5,.5 H ${advSvgWidth - .5} V ${advFirstThree - .5} H .5 z`);
 
-            advSvgObj.first.path = `M ${advSvgWidth},${top} h -${lineLengthMd} L ${lineOffsetXFirstMd},${lineOffsetYFirstMd}`;
+            advSvgObj.first.path = `M ${advSvgWidth},${top} h -${lineLengthMd} L ${lineOffsetXFirstMd},${middle - lineOffsetYFirstMd}`;
             advSvgObj.second.path = `M ${advSvgWidth},${middle} H ${lineOffsetXSecondMd}`;
-            advSvgObj.third.path = `M ${advSvgWidth},${bottom} h -${lineLengthMd} L ${lineOffsetXThirdMd},${lineOffsetYThirdMd}`;
+            advSvgObj.third.path = `M ${advSvgWidth},${bottom} h -${lineLengthMd} L ${lineOffsetXThirdMd},${middle + lineOffsetYThirdMd}`;
 
             commonPath.setAttribute("d", advSvgObj.first.path + advSvgObj.second.path + advSvgObj.third.path);
 
@@ -358,11 +358,11 @@
             advEls[3].cirS.setAttribute("cy", bottom);
 
             advEls[1].cirE.setAttribute("cx", lineOffsetXFirstMd);
-            advEls[1].cirE.setAttribute("cy", lineOffsetYFirstMd);
+            advEls[1].cirE.setAttribute("cy", middle - lineOffsetYFirstMd);
             advEls[2].cirE.setAttribute("cx", lineOffsetXSecondMd);
             advEls[2].cirE.setAttribute("cy", middle);
             advEls[3].cirE.setAttribute("cx", lineOffsetXThirdMd);
-            advEls[3].cirE.setAttribute("cy", lineOffsetYThirdMd);
+            advEls[3].cirE.setAttribute("cy", middle + lineOffsetYThirdMd);
         }
 
         function adaptiveLines() {
