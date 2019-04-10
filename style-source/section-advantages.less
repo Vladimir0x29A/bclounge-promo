@@ -3,6 +3,37 @@
 @import "fluid";
 @import "breaks";
 
+#svg-advantage-lines-1,
+#svg-advantage-lines-2 {
+  .line {
+    fill: none;
+    stroke: #4e83cb;
+    stroke-width: 1;
+  }
+  circle {
+    fill: #4e83cb;
+  }
+}
+
+#svg-advantage-lines-1 {
+  position: absolute;
+  z-index: 1;
+  transform: translate(-50%);
+
+  @media screen and (max-width: @break_md) {
+    //transform: translateY(-50%);
+    transform: none;
+  }
+
+}
+
+#svg-advantage-lines-2 {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
 .section {
   &-advantages {
     position: relative;
@@ -27,11 +58,13 @@
     .block {
       &-image {
         position: absolute;
-        top: 735px;
-        .fluid(top, @break_advantages_2, 930px, 760px, 790px, 0, 0);
-        .fluid(top, @break_md, @break_sm, 840px, 880px, 0, 0);
-        .fluid(top, @break_sm, @break_advantages, 838px, 868px, 0, 0);
-        .fluid(top, @break_advantages, @break_xs, 860px, 850px, 0, 0);
+        //top: 735px;
+        //top: 50%;
+        top: 550px;
+        //.fluid(top, @break_advantages_2, 930px, 760px, 790px, 0, 0);
+        //.fluid(top, @break_md, @break_sm, 840px, 880px, 0, 0);
+        //.fluid(top, @break_sm, @break_advantages, 838px, 868px, 0, 0);
+        //.fluid(top, @break_advantages, @break_xs, 860px, 850px, 0, 0);
         //.fluid(top, @break_xs, 480px, 850px, 805px, 0, 0);
         left: 50%;
         @media screen and (max-width: @break_md) {
@@ -41,7 +74,7 @@
           transform: scale(.9);
         }
         @media screen and (max-width: @break_xs) {
-          top: 850px;
+          //top: 850px;
           transform: scale(.8);
         }
         &::after {
@@ -77,14 +110,15 @@
           top: 4px;
         }
         .logo {
-          top: 12px;
           filter: drop-shadow(0 0 10px rgba(0, 169, 228, .45));
+          transform: translate(-50%);
+          //top: 12px;
           /*@media screen and (max-width: @break_advantages_2) {
             top: 15px;
           }*/
-          @media screen and (max-width: @break_md) {
+          /*@media screen and (max-width: @break_md) {
             top: 11px;
-          }
+          }*/
         }
         .lines {
           @media screen and (max-width: @break_advantages_2) {
@@ -106,24 +140,25 @@
         &:nth-child(2) {
           display: none;
           top: auto;
-          bottom: 720px;
+          //bottom: 720px;
+          bottom: 550px;
           left: auto;
           right: 0;
           @media screen and (max-width: @break_md) {
             display: block;
-            .lines {
+            /*.lines {
               clip: rect(0, 437px, 86px, 0);
               transform: translate(-50%, -50%) scale(1, -.8);
-            }
+            }*/
           }
           /*@media screen and (max-width: @break_sm) {
             bottom: 700px;
           }*/
-          @media screen and (max-width: @break_advantages) {
+          /*@media screen and (max-width: @break_advantages) {
             .lines {
               transform: translate(-50%, -50%) scale(.6, -.8);
             }
-          }
+          }*/
           @media screen and (max-width: @break_xs) {
             display: none;
             //bottom: 690px;
@@ -142,12 +177,13 @@
       position: absolute;
       top: -20px;
       //top: 42px;
-      .fluid(top, @break_advantages_2, 930px, -31px, -5px, 0, 0);
+      //.fluid(top, @break_advantages_2, 930px, -31px, -5px, 0, 0);
       right: calc(69.6% - 15px);
       .rem(30px);
       //font-size: 30px;
       line-height: 1.5;
       text-align: right;
+
       @media screen and (max-width: @break_md) {
         position: static;
         display: block;
@@ -184,6 +220,7 @@
         margin: -30px 0;
         @media screen and (max-width: @break_md) {
           flex-direction: column;
+          margin-top: 0;
           margin-right: 190px;
           margin-left: 190px;
         }
@@ -220,34 +257,53 @@
         margin-left: round(@advantage_offset_1, 3);
         margin-right: round(@advantage_offset_2, 3);
       }
+
       &:nth-child(1),
       &:nth-child(2),
       &:nth-child(3),
       &:nth-child(4),
       &:nth-child(5) {
-        .fluid(margin-top, @break_advantages, 480px, 30px, 22px, 0, 0);
-        .fluid(margin-bottom, @break_advantages, 480px, 30px, 22px, 0, 0);
         @media screen and (max-width: @break_md) {
           margin-right: 0;
           margin-left: 0;
         }
+      }
+
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+      //&:nth-child(5) {
         @media screen and (max-width: @break_md) {
-          margin-top: 30px;
-          margin-bottom: 30px;
+          //margin-top: 30px;
+          margin-top: 50px;
+        }
+        .fluid(margin-top, @break_advantages, 480px, 50px, 44px, 0, 0);
+        //.fluid(margin-top, @break_advantages, 480px, 30px, 22px, 0, 0);
+      }
+
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+        //.fluid(margin-bottom, @break_advantages, 480px, 30px, 22px, 0, 0);
+        @media screen and (max-width: @break_md) {
+          //margin-bottom: 30px;
+          margin-bottom: 0;
         }
       }
 
-      &:nth-child(5) {
+      /*&:nth-child(5) {
         @media screen and (max-width: @break_md) {
           margin-top: 50px;
         }
         @media screen and (max-width: @break_advantages) {
           margin-top: 60px;
         }
-      }
+      }*/
 
         // Ordering
-      &:nth-child(5), &:nth-child(1) {
+      //&:nth-child(5), &:nth-child(1) {
+      &:nth-child(1) {
         order: -2;
         @media screen and (max-width: @break_md) {
           order: initial;
