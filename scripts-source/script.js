@@ -1,6 +1,6 @@
 (function () {
 
-    document.addEventListener('DOMContentLoaded', function () {
+    window.onload = function () {
 
         function raf(fn) {
             window.requestAnimationFrame(function () {
@@ -179,9 +179,9 @@
         let advTitleRect,
             advTitleHalfHeight,
             advSvgLinesTopOffset;
-        // let advTitleHalfHeight = advTitle.getBoundingClientRect().height / 2;
 
-        const advBlockImage = sectAdv.querySelector('.block-image');
+        const advBlockImage = sectAdv.querySelectorAll('.block-image')[0];
+        const advBlockImage2 = sectAdv.querySelectorAll('.block-image')[1];
         const advLogo = advBlockImage.querySelector('.logo');
         let advLogoHalfHeight;
 
@@ -192,9 +192,13 @@
         const advItem3 = advItemBlock.querySelector('.item:nth-child(3)');
         const advItem4 = advItemBlock.querySelector('.item:nth-child(4)');
 
-        const advSvgLines = document.querySelector('#svg-advantage-lines-1');
+        const advSvgLines = advBlockImage.querySelector('#svg-advantage-lines-1');
         const commonPath = advSvgLines.querySelector('.line.common');
-        let advSvgLinesPathBorder = advSvgLines.querySelector('.border');
+
+        const advSvgLines2 = advBlockImage2.querySelector('#svg-advantage-lines-2');
+        const commonPath2 = advSvgLines2.querySelector('.line.common');
+        const circle2Start = advSvgLines2.querySelector('circle.start.first');
+        const circle2End = advSvgLines2.querySelector('circle.end.first');
 
         const advSvgObj = {
             'title': {
@@ -223,19 +227,12 @@
             }
         };
 
-        const alingObj = {
-            top: 0,
-            center: 0,
-            bottom: 0
-        };
-
         const advSvgKeys = Object.keys(advSvgObj);
 
         function advLines(parent = document) {
             const qs = (sel) => parent.querySelector(sel);
             return advSvgKeys.map(function (key) {
                 return {
-                     // path: qs(`.line.${key}`),
                      cirS: qs(`circle.start.${key}`),
                      cirE: qs(`circle.end.${key}`)
                 }
@@ -256,7 +253,6 @@
 
             let advItem1Margin = parseFloat(getComputedStyle(advItem1).marginRight); // *** top & bottom side offset
             let advHOffset1 = Math.ceil(advItem1.getBoundingClientRect().width + advItem1Margin);
-            // let advHOffset2 = Math.ceil(advItem2.getBoundingClientRect().width);
             let advItem1Height = advItem1.getBoundingClientRect().height;
             let advItem1HalfHeight = advItem1Height / 2; // *** top
             let advItem2HalfHeight = advItem2.getBoundingClientRect().height / 2;
@@ -267,8 +263,6 @@
             advTitle.style.top = -advTitleHalfHeight + advItem1HalfHeight + 'px';
 
             advLogoHalfHeight = advLogo.getBoundingClientRect().height / 2;
-            // advLogo.style.transform = `translate(-50%, ${-advItemBlockRect.height / 2 + advVOffset - advLogoHalfHeight}px)`;
-            // advLogo.style.transform = `translate(-50%, ${advVOffset - advLogoHalfHeight}px)`;
             advLogo.style.transform = `translate(-50%, ${-advLogoHalfHeight}px)`;
             advSvgLines.style.transform = `translate(-50%, ${-advVOffset}px)`;
             advBlockImage.style.transform = `translate(0, ${advVOffset}px)`;
@@ -279,8 +273,6 @@
             advSvgLines.setAttribute("height", advSvgHeight);
 
             let bottomOffset = advSvgHeight - Math.max(advItem3HalfHeight, advItem4HalfHeight);
-
-            advSvgLinesPathBorder.setAttribute("d", `M .5,.5 H ${advSvgWidth - .5} V ${advSvgHeight - .5} H .5 z`);
 
             advSvgObj.title.path = `M ${advItem1Margin},${advItem1HalfHeight} h ${lineLength} L ${advSvgWidth / 2 - lineOffsetXTitle},${advVOffset - lineOffsetYTitle}`;
             advSvgObj.first.path = `M ${advSvgWidth - advItem1Margin},${advItem1HalfHeight} h -${lineLength} L ${advSvgWidth / 2 + lineOffsetXFirst},${advVOffset - lineOffsetYFirst}`;
@@ -313,20 +305,61 @@
             advEls[4].cirE.setAttribute("cy", advVOffset + lineOffsetYForth);
         }
 
-        const lineLengthMd = 40;
-        const lineOffsetXFirstMd = 95, lineOffsetYFirstMd = 115;
-        const lineOffsetXSecondMd = 95;
-        const lineOffsetXThirdMd = 45, lineOffsetYThirdMd = 80;
+        const advDrawLinesMdSettings = {
+            leftOffset: 60,
+            lineLength: 50,
+            lineOffsetXFirst: 144,
+            lineOffsetYFirst: 80,
+            lineOffsetXSecond: 96,
+            lineOffsetXThird: 43,
+            lineOffsetYThird: 80,
+            line2OffsetX: 60,
+            line2OffsetY: 270
+        };
 
-        function advDrawLinesMd() {
-            let advSvgWidth = advItem1.getBoundingClientRect().left - 40;
+        const advDrawLinesSmSettings = {
+            leftOffset: 40,
+            lineLength: 40,
+            lineOffsetXFirst: 80,
+            lineOffsetYFirst: 100,
+            lineOffsetXSecond: 83,
+            lineOffsetXThird: 37,
+            lineOffsetYThird: 68,
+            line2OffsetX: 63,
+            line2OffsetY: 200
+        };
+
+        const advDrawLines650Settings = {
+            leftOffset: 30,
+            lineLength: 20,
+            lineOffsetXFirst: 74,
+            lineOffsetYFirst: 92,
+            lineOffsetXSecond: 76,
+            lineOffsetXThird: 30,
+            lineOffsetYThird: 68,
+            line2OffsetX: 45,
+            line2OffsetY: 220
+        };
+
+        const advDrawLinesXsSettings = {
+            leftOffset: 24,
+            lineLength: 20,
+            lineOffsetXFirst: 40,
+            lineOffsetYFirst: 100,
+            lineOffsetXSecond: 76,
+            lineOffsetXThird: 30,
+            lineOffsetYThird: 68
+        };
+
+        function advDrawLinesMd(advDrawLinesSettings, line2) {
+            let leftOffset = advDrawLinesSettings.leftOffset;
+            let advSvgWidth = advItem1.getBoundingClientRect().left - leftOffset;
 
             let advItem1Height = advItem1.getBoundingClientRect().height;
             let topMargin = parseFloat(getComputedStyle(advItem2).marginTop);
             let advItem2Height = advItem2.getBoundingClientRect().height;
             let advItem3Height = advItem3.getBoundingClientRect().height;
             let advFirstThree = advItem1Height + topMargin * 2 + advItem2Height + advItem3Height;
-            // advSvgLinesTopOffset = advTitleRect.height + parseFloat(getComputedStyle(advTitle).marginBottom) + advFirstThree / 2;
             let top = advItem1Height / 2;
             let middle = advItem1Height + topMargin + advItem2Height / 2;
             let bottom = advFirstThree - advItem3Height / 2;
@@ -334,7 +367,6 @@
             advSvgLinesTopOffset = advTitleRect.height + parseFloat(getComputedStyle(advTitle).marginBottom) + middle;
 
             advLogoHalfHeight = advLogo.getBoundingClientRect().height / 2;
-            // console.log(advLogoHalfHeight);
 
             advSvgLines.setAttribute("height", advFirstThree);
             advBlockImage.style.transform = `translate(0, ${advSvgLinesTopOffset}px)`;
@@ -342,11 +374,18 @@
 
             advSvgLines.setAttribute("width", advSvgWidth);
 
-            advSvgLinesPathBorder.setAttribute("d", `M .5,.5 H ${advSvgWidth - .5} V ${advFirstThree - .5} H .5 z`);
+            let lineLength = advDrawLinesSettings.lineLength,
+                lineOffsetXFirst = advDrawLinesSettings.lineOffsetXFirst,
+                lineOffsetXSecond = advDrawLinesSettings.lineOffsetXSecond,
+                lineOffsetXThird = advDrawLinesSettings.lineOffsetXThird,
+                lineOffsetYFirst = advDrawLinesSettings.lineOffsetYFirst,
+                lineOffsetYThird = advDrawLinesSettings.lineOffsetYThird,
+                line2OffsetX = advDrawLinesSettings.line2OffsetX,
+                line2OffsetY = advDrawLinesSettings.line2OffsetY;
 
-            advSvgObj.first.path = `M ${advSvgWidth},${top} h -${lineLengthMd} L ${lineOffsetXFirstMd},${middle - lineOffsetYFirstMd}`;
-            advSvgObj.second.path = `M ${advSvgWidth},${middle} H ${lineOffsetXSecondMd}`;
-            advSvgObj.third.path = `M ${advSvgWidth},${bottom} h -${lineLengthMd} L ${lineOffsetXThirdMd},${middle + lineOffsetYThirdMd}`;
+            advSvgObj.first.path = `M ${advSvgWidth},${top} h -${lineLength} L ${lineOffsetXFirst},${middle - lineOffsetYFirst}`;
+            advSvgObj.second.path = `M ${advSvgWidth},${middle} H ${lineOffsetXSecond}`;
+            advSvgObj.third.path = `M ${advSvgWidth},${bottom} h -${lineLength} L ${lineOffsetXThird},${middle + lineOffsetYThird}`;
 
             commonPath.setAttribute("d", advSvgObj.first.path + advSvgObj.second.path + advSvgObj.third.path);
 
@@ -357,21 +396,46 @@
             advEls[3].cirS.setAttribute("cx", advSvgWidth - 2);
             advEls[3].cirS.setAttribute("cy", bottom);
 
-            advEls[1].cirE.setAttribute("cx", lineOffsetXFirstMd);
-            advEls[1].cirE.setAttribute("cy", middle - lineOffsetYFirstMd);
-            advEls[2].cirE.setAttribute("cx", lineOffsetXSecondMd);
+            advEls[1].cirE.setAttribute("cx", lineOffsetXFirst);
+            advEls[1].cirE.setAttribute("cy", middle - lineOffsetYFirst);
+            advEls[2].cirE.setAttribute("cx", lineOffsetXSecond);
             advEls[2].cirE.setAttribute("cy", middle);
-            advEls[3].cirE.setAttribute("cx", lineOffsetXThirdMd);
-            advEls[3].cirE.setAttribute("cy", middle + lineOffsetYThirdMd);
+            advEls[3].cirE.setAttribute("cx", lineOffsetXThird);
+            advEls[3].cirE.setAttribute("cy", middle + lineOffsetYThird);
+
+
+            if (line2) {
+                let advItem4Rect = advItem4.getBoundingClientRect();
+                let advItem4Height = advItem4Rect.height;
+                let advSvgLines2Offset = advItem4Rect.right;
+                let advSvgHeight2 = Math.ceil(advLogo.getBoundingClientRect().height);
+
+                let advSvgLines2Width = sectAdv.getBoundingClientRect().width - advSvgLines2Offset - leftOffset;
+                advSvgLines2.setAttribute("width", advSvgLines2Width);
+                advSvgLines2.setAttribute("height", advSvgHeight2);
+                advBlockImage2.style.transform = `translate(0, ${-advLogo.getBoundingClientRect().height / 2}px)`;
+
+                let advSvgPath2 = `M 0,${advSvgHeight2 - advItem4Height / 2} h ${lineLength} L ${advSvgLines2Width - line2OffsetX},${line2OffsetY}`;
+                commonPath2.setAttribute("d", advSvgPath2);
+
+                circle2Start.setAttribute("cx", '2');
+                circle2Start.setAttribute("cy", advSvgHeight2 - advItem4Height / 2);
+                circle2End.setAttribute("cx", advSvgLines2Width - line2OffsetX);
+                circle2End.setAttribute("cy", line2OffsetY);
+            }
         }
 
         function adaptiveLines() {
-            if (window.innerWidth > 960) {
+            let windowSize = window.innerWidth;
+            if (windowSize > 960) {
                 advMd = 0;
                 if (!advLg) {
                     advTitleRect = advTitle.getBoundingClientRect();
                     advTitleHalfHeight = advTitleRect.height / 2;
-                    // advBlockImage.removeAttribute('style');
+                    advEls[0].cirS.removeAttribute('opacity');
+                    advEls[0].cirE.removeAttribute('opacity');
+                    advEls[4].cirS.removeAttribute('opacity');
+                    advEls[4].cirE.removeAttribute('opacity');
                     advLg = 1;
                 }
                 advDrawLinesLg();
@@ -383,10 +447,21 @@
                     advTitle.removeAttribute('style');
                     advLogo.removeAttribute('style');
                     advSvgLines.removeAttribute('style');
-                    // advBlockImage.removeAttribute('style');
+                    advEls[0].cirS.setAttribute('opacity', '0');
+                    advEls[0].cirE.setAttribute('opacity', '0');
+                    advEls[4].cirS.setAttribute('opacity', '0');
+                    advEls[4].cirE.setAttribute('opacity', '0');
                     advMd = 1;
                 }
-                advDrawLinesMd();
+                if (windowSize <= 560) {
+                    advDrawLinesMd(advDrawLinesXsSettings);
+                } else if (windowSize <= 650) {
+                    advDrawLinesMd(advDrawLines650Settings, true);
+                } else if (windowSize <= 767) {
+                    advDrawLinesMd(advDrawLinesSmSettings, true);
+                } else {
+                    advDrawLinesMd(advDrawLinesMdSettings, true);
+                }
             }
         }
 
@@ -395,5 +470,5 @@
         window.addEventListener("resize", function () {
             adaptiveLines();
         });
-    });
+    }
 })();

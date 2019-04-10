@@ -3,6 +3,18 @@
 @import "fluid";
 @import "breaks";
 
+#svg-advantage-lines-1,
+#svg-advantage-lines-2 {
+  .line {
+    fill: none;
+    stroke: #4e83cb;
+    stroke-width: 1;
+  }
+  circle {
+    fill: #4e83cb;
+  }
+}
+
 #svg-advantage-lines-1 {
   position: absolute;
   z-index: 1;
@@ -13,14 +25,13 @@
     transform: none;
   }
 
-  .line {
-    fill: none;
-    stroke: #4e83cb;
-    stroke-width: 1;
-  }
-  circle {
-    fill: #4e83cb;
-  }
+}
+
+#svg-advantage-lines-2 {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  transform: translateY(-50%);
 }
 
 .section {
@@ -132,24 +143,25 @@
         &:nth-child(2) {
           display: none;
           top: auto;
-          bottom: 720px;
+          //bottom: 720px;
+          bottom: 550px;
           left: auto;
           right: 0;
           @media screen and (max-width: @break_md) {
             display: block;
-            .lines {
+            /*.lines {
               clip: rect(0, 437px, 86px, 0);
               transform: translate(-50%, -50%) scale(1, -.8);
-            }
+            }*/
           }
           /*@media screen and (max-width: @break_sm) {
             bottom: 700px;
           }*/
-          @media screen and (max-width: @break_advantages) {
+          /*@media screen and (max-width: @break_advantages) {
             .lines {
               transform: translate(-50%, -50%) scale(.6, -.8);
             }
-          }
+          }*/
           @media screen and (max-width: @break_xs) {
             display: none;
             //bottom: 690px;
