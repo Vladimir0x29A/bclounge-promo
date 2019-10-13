@@ -9,6 +9,7 @@ const gulp = require('gulp'),
     smartgrid = require('smart-grid'),
     less = require('gulp-less'),
     cleancss = require('gulp-clean-css'),
+    sourceMaps = require('gulp-sourcemaps'),
     gcmq = require('gulp-group-css-media-queries');
     // rsync = require('gulp-rsync');
 
@@ -78,6 +79,7 @@ gulp.task('js', function () {
 
 gulp.task('css', function () {
     return gulp.src('style-source/main.less')
+        // .pipe(sourceMaps.init())
         .pipe(less())
         //.pipe(sass({indentedSyntax: true}).on('error', sass.logError))
         //.pipe(uncss({
@@ -91,6 +93,7 @@ gulp.task('css', function () {
            browsers: ['last 15 versions'],
            cascade: false
         }))
+        // .pipe(sourceMaps.write())
         .pipe(rename('style.css'))
         .pipe(gulp.dest('build'))
         .pipe(connect.reload());
